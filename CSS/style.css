@@ -1,0 +1,241 @@
+body {
+    background-color: rgb(248, 241, 233);
+    font-family: sans-serif;
+}
+
+header {
+    width: 1200px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+    border-bottom: 2px solid #0b3533;
+}
+
+.section-inicio {
+    width: 1200px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer {
+    width: 1200px;
+    height: 100px;
+    background-color: #FFC7C7;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-top-left-radius:5px ;
+    border-top-right-radius:5px ;
+}
+
+.seccion-titulo {
+    width: 1200px;
+    height: 25px;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FF5F40;
+    text-align: center;
+    font-weight: bold;
+}
+
+.logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 5px;
+} 
+
+.link {
+    border-radius: 10px;
+    background-color: #eaeeee;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 10px;
+    border: 1px solid #0b3533;
+    margin-right: 30px;
+}
+
+.buscador {
+    width: 500px;
+    height: 38px;
+    border-radius: 10px;
+    border: 1px solid #0b3533;
+    background-color: #eaeeee;
+    margin-right: 15px;
+}
+
+::placeholder {
+    text-align: center;
+    color: (50, 68, 68);
+    font-size: 18px;
+ }
+
+a:hover {
+    color:#24A19C;
+}
+
+.ofertas {
+    height: 20%;
+    background-color: #6ebfb644;
+    display: flex;
+    border-radius: 5px;
+}
+
+.ofertas-titulo {   
+    color:  rgb(50, 68, 68);
+    font-size: 25px;
+    font-weight: bold;
+    margin-left:8px;
+    background-color: #ffffff;
+}
+
+.productos-en-oferta {
+    width: 1200px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+}
+
+.card {
+    width: 100%;
+    height: 90%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    text-align: center;
+    margin: 10px;
+}
+
+.quienes-somos {
+    width: 100%;
+    height: 300px;
+    background-color: #6ebfb644;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.quienes-somos-titulo { 
+    text-align: center  ;
+    color:  rgb(50, 68, 68);
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
+.box-informacion {
+    width: 800px;
+    height: 250px;
+}
+
+.informacion {
+    font-size: 20px;
+    text-indent: 30px;
+    text-align: justify;
+    margin-left:20px;
+
+} 
+
+.foto-supermercado {
+    width: 250px;   
+    height: 250px;
+    border-radius: 20px;
+    margin:20px;
+}
+
+.section-comprar {
+    width: 1200px;
+    margin-top: 20px;
+    background-color: rgba(77, 107, 107, 0.315);
+    border-radius: 20px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.secciones {
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    margin: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(50, 68, 68);
+}
+
+input:hover {
+    color: rgb(115, 160, 130);;
+}
+
+.seccion {
+    width: 1100px;
+    border-radius: 20px;
+    background-color: rgba(77, 107, 107, 0.315);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.producto {
+    width:200px;
+    height: 360px;
+    background-color: white;
+    margin:20px;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagen-producto {
+    width: 180px;
+    height: 180px;
+    border-radius: 20px;
+}
+
+.descripcion {
+    font-size: 15px;
+    margin-left:10px;
+    margin-right:10px;
+    font-weight: bold;
+    color: rgb(75, 75, 75);
+    margin-top: -10px;
+}
+
+.precio {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    margin-top: -15px;
+
+
+}
+
+.cantidad-productos {
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    border-radius: 20px;
+    border:2px solid rgba(77, 107, 107, 0.315);
+    margin-top: -34px;
+    margin-left: 20px;
+}
+
+.btn-comprar {
+    width: 180px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    border:none;
+}
