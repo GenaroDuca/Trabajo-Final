@@ -153,7 +153,7 @@ a:hover {
 .section-comprar {
     width: 1200px;
     margin-top: 20px;
-    background-color: rgba(77, 107, 107, 0.315);
+    background-color: #6ebfb644;
     border-radius: 20px;
     display:flex;
     flex-direction: column;
@@ -178,7 +178,7 @@ input:hover {
 .seccion {
     width: 1100px;
     border-radius: 20px;
-    background-color: rgba(77, 107, 107, 0.315);
+    background-color: #6ebfb644;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
