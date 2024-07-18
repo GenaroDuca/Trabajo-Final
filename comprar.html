@@ -24,29 +24,23 @@
     </header>
 
     <section>
-        <div class="seccion-comprar">
-            <input type="button" value="Almacén" class="categoria-productos">
-            <div class="seccion-almacen" id="seccion-almacen">
-                <div class="subseccion" id="subseccion">
-
-                </div>
-            </div>
-            <div class="seccion-bebidas" id="seccion-bebidas">
-                <div class="subseccion" id="subseccion">
-
-                </div>
-            </div>
-            <div class="seccion-lacteos" id="seccion-lacteos">
-                <div class="subseccion" id="subseccion">
-
-                </div>
-            </div>
-            <div class="seccion-panaderia" id="seccion-panaderia">
-                <div class="subseccion" id="subseccion">
-
-                </div>
-            </div>
-        <div>
+        <div class="contenedor-productos">
+            <select class="categoria-productos">
+                <option value="Todo">Todo</option>
+                <option value="Almacén">Almacén</option>
+                <option value="Bebidas">Bebidas</option>
+                <option value="Lácteos">Lácteos</option>
+                <option value="Panadería">Panadería</option>
+            </select>
+            <input class="btn-categoria" type="button" value="Almacén">
+            <div class="seccion-comprar" id="almacen"></div>   
+            <input class="btn-categoria" type="button" value="Bebidas">  
+            <div class="seccion-comprar" id="bebidas"></div>  
+            <input class="btn-categoria" type="button" value="Lácteos">  
+            <div class="seccion-comprar" id="lacteos"></div>
+            <input class="btn-categoria" type="button" value="Panadería">
+            <div class="seccion-comprar" id="panaderia"></div>  
+        </div>
 
     </section>
 

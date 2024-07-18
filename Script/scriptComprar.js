@@ -18,74 +18,112 @@ let preciosPanaderia = [1000, 2000, 3000, 4000];
 let stockPanaderia = [10];
 let imagenesPanaderia = ["Script/fideos.jpeg"]
 
-function llenarInformacionProductos(productos, precios, imagenes) {
-    let input = document.getElementById("seccion-comprar")
-    for (i = 0; i < productos.length; i++) {
-        let subseccion = document.getElementById("subseccion") 
+function llenarInformacionProductos(producto, precio, imagen, seccion) {
+    let seccionComprar = document.getElementById(seccion)
 
-        //CREA CONTENEDOR
-        let contenedor = document.createElement("div")
+    let contenedorSeccion = document.createElement("div")
 
-        //CREAR IMAGEN
-        let imagen = document.createElement("img")
-        imagen.setAttribute("url", imagenes[i])
-        imagen.setAttribute("alt", productos[i])
-        contenedor.appendChild(imagen)
+    let imagenProducto = document.createElement("img")
+    imagenProducto.setAttribute("url", imagen[i])
+    imagenProducto.setAttribute("alt", producto[i])
+    imagenProducto.setAttribute ("class", "imagen-producto")
+    imagenProducto.setAttribute ("id", "imagen-producto")
+    contenedorSeccion.appendChild(imagenProducto)
 
-        //CREAR NOMBRE DEL PRODUCTO
-        let producto = document.createElement("p")
-        let textoProducto = document.createTextNode(productos[i])
-        producto.setAttribute("class", "descripcion-producto");
-        producto.appendChild(textoProducto)
-        contenedor.appendChild(producto)
+    let descripcionProducto = document.createElement ("p")
+    descripcionProducto.setAttribute ("class", "descripcion-producto")
+    descripcionProducto.setAttribute ("id", "descripcion-producto")
+    let textoDescripcionProducto = document.createTextNode (producto[i])
+    descripcionProducto.appendChild (textoDescripcionProducto)
+    contenedorSeccion.appendChild(descripcionProducto)
 
-        //CREAR PRECIO DEL PRODUCTO
-        let precio = document.createElement("p")
-        let textoPrecio = document.createTextNode(precios[i] + "$")
-        precio.setAttribute("class", "precio-producto")
-        producto.appendChild(textoPrecio)
-        contenedor.appendChild(precio)
+    let precioProducto = document.createElement ("p")
+    precioProducto.setAttribute ("class", "precio-producto")
+    precioProducto.setAttribute ("id", "precio-producto")
+    let textoPrecioProducto = document.createTextNode (precio[i]+"$")
+    descripcionProducto.appendChild (textoPrecioProducto)
+    contenedorSeccion.appendChild(precioProducto)
 
-        //CREAR INPUT DE CANTIDAD
-        let inputCantidad = document.createElement("input")
-        inputCantidad.setAttribute("class", "cant-producto")
-        inputCantidad.setAttribute("type", "number")
-        inputCantidad.setAttribute("placeholder", "Cantidad")
-        contenedor.appendChild(inputCantidad)
+    let inputCantidad = document.createElement ("input")
+    inputCantidad.setAttribute ("type", "number")
+    inputCantidad.setAttribute ("class", "input-cantidad")
+    inputCantidad.setAttribute ("id", "input-cantidad")
+    contenedorSeccion.appendChild(inputCantidad)
 
-        //CREAR INPUT DE AGREGAR
-        let inputAgregar = document.createElement("input")
-        inputAgregar.setAttribute("class", "btn-comprar")
-        inputAgregar.setAttribute("type", "button")
-        inputAgregar.setAttribute("value", "Agregar")
-        contenedor.appendChild(inputAgregar)
+    let inputAgregar = document.createElement ("input")
+    inputAgregar.setAttribute ("type", "button")
+    inputAgregar.setAttribute ("class", "input-agregar")
+    inputAgregar.setAttribute ("id", "input-agregar")
+    contenedorSeccion.appendChild(inputAgregar)
 
-        contenedor.setAttribute("class", "contenedor")
-        contenedor.setAttribute("id", "contenedor")
-        subseccion.appendChild(contenedor)
-    } 
+    contenedorSeccion.setAttribute("class", " contenedor-seccion")
+    contenedorSeccion.setAttribute("id", " contenedor-seccion")
+    seccionComprar.appendChild(contenedorSeccion)
+
 }
 
-for (i = 0; i < productosAlmacen.length; i++) {
-    let seccion = document.getElementById("seccion-almacen")
-    llenarInformacionProductos(productosAlmacen, preciosAlmacen, imagenesAlmacen)
+    let seccionAlmacen = document.getElementById ("almacen")
+for (i=0; i<productosAlmacen.length;i++) {
+    llenarInformacionProductos(productosAlmacen, preciosAlmacen, imagenesAlmacen, "almacen")
 }
 
-for (i = 0; i < productosBebidas.length; i++) {
-    let seccion = document.getElementById("seccion-lacteos") 
-    llenarInformacionProductos(productosBebidas, preciosBebidas, imagenesBebidas)
+    let seccionBebidas = document.getElementById ("bebidas")
+for (i=0; i<productosBebidas.length;i++) {
+    llenarInformacionProductos(productosBebidas, preciosBebidas, imagenesBebidas, "bebidas")
 }
 
-
-for (i = 0; i < productosLacteos.length; i++) {
-    let seccion = document.getElementById("seccion-lacteos") 
-    llenarInformacionProductos(productosLacteos, preciosLacteos, imagenesLacteos)
+let seccionLacteos = document.getElementById ("lacteos")
+for (i=0; i<productosLacteos.length;i++) {
+    llenarInformacionProductos(productosLacteos, preciosLacteos, imagenesLacteos, "lacteos")
 }
 
-for (i = 0; i < productosPanaderia.length; i++) {
-    let seccion = document.getElementById("seccion-panaderia") 
-    llenarInformacionProductos(productosPanaderia, preciosPanaderia, imagenesPanaderia)
+let seccionPanaderia = document.getElementById ("panaderia")
+for (i=0; i<productosPanaderia.length;i++) {
+    llenarInformacionProductos(productosPanaderia, preciosPanaderia, imagenesPanaderia, "panaderia")
 }
 
+//Funcionamiento del botón que clasifica los productos
+let clasificacion = document.getElementsByClassName("categoria-productos");
 
+for (i=0; i < clasificacion.length; i++) {
+    clasificacion[i].addEventListener("change", function(event) {
+        const opcionSeleccionada = event.target.value;
 
+        switch (opcionSeleccionada) {
+            case "Todo":
+                seccionAlmacen.classList.remove("ocultar");
+                seccionBebidas.classList.remove("ocultar");
+                seccionLacteos.classList.remove("ocultar");
+                seccionPanaderia.classList.remove("ocultar");
+                break;
+
+            case "Almacén":
+                seccionAlmacen.classList.remove("ocultar");
+                seccionBebidas.classList.add("ocultar");
+                seccionLacteos.classList.add("ocultar");
+                seccionPanaderia.classList.add("ocultar");
+                break;
+
+            case "Bebidas":
+                seccionAlmacen.classList.add("ocultar");
+                seccionBebidas.classList.remove("ocultar");
+                seccionLacteos.classList.add("ocultar");
+                seccionPanaderia.classList.add("ocultar");
+                break;
+
+            case "Lácteos":
+                seccionAlmacen.classList.add("ocultar");
+                seccionBebidas.classList.add("ocultar");
+                seccionLacteos.classList.remove("ocultar");
+                seccionPanaderia.classList.add("ocultar");
+                break;
+
+            case "Panadería":
+                seccionAlmacen.classList.add("ocultar");
+                seccionBebidas.classList.add("ocultar");
+                seccionLacteos.classList.add("ocultar");
+                seccionPanaderia.classList.remove("ocultar");
+                break;
+        }
+})
+}
