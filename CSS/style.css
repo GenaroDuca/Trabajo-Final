@@ -1,6 +1,7 @@
 body {
     background-color: rgb(248, 241, 233);
     font-family: sans-serif;
+    margin: -16px;
 }
 
 header {
@@ -36,7 +37,6 @@ footer {
 .seccion-titulo {
     width: 1200px;
     height: 25px;
-    margin-top: 5px;
     margin-left: auto;
     margin-right: auto;
     background-color: #FF5F40;
@@ -150,7 +150,7 @@ a:hover {
     margin:20px;
 }
 
-.section-comprar {
+.seccion-comprar {
     width: 1200px;
     margin-top: 20px;
     background-color: #6ebfb644;
@@ -158,9 +158,11 @@ a:hover {
     display:flex;
     flex-direction: column;
     align-items: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.secciones {
+.categoria-productos {
     width: 100px;
     height: 40px;
     border-radius: 20px;
@@ -175,18 +177,20 @@ input:hover {
     color: rgb(115, 160, 130);;
 }
 
-.seccion {
+.seccion-almacen{
     width: 1100px;
     border-radius: 20px;
     background-color: #6ebfb644;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-
+}
+.subseccion {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .contenedor {
-    width:200px;
+    width: 235px;
     height: 360px;
     background-color: white;
     margin:20px;
@@ -198,13 +202,13 @@ input:hover {
     height: 280px;
 }
 
-.descripcion {
+.descripcion-producto {
 }
 
-.precio {
+.precio-producto {
 }
 
-.cantidad-productos {
+.cantidad-producto {
     width: 80px;
     height: 80px;
 }

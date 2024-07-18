@@ -1,0 +1,11 @@
+section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(134, 127, 127);
+    margin: 5px;
+}
