@@ -239,3 +239,7 @@ input:hover {
     font-weight: bold;
     border:none;
 }
+
+.ocultar {
+    display: none;
+}
