@@ -185,59 +185,33 @@ input:hover {
 
 }
 
-.producto {
+.contenedor {
     width:200px;
     height: 360px;
     background-color: white;
     margin:20px;
     border-radius: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
 }
 
 .imagen-producto {
-    width: 180px;
-    height: 180px;
-    border-radius: 20px;
+    width: 280px;
+    height: 280px;
 }
 
 .descripcion {
-    font-size: 15px;
-    margin-left:10px;
-    margin-right:10px;
-    font-weight: bold;
-    color: rgb(75, 75, 75);
-    margin-top: -10px;
 }
 
 .precio {
-    font-size: 18px;
-    font-weight: bold;
-    color: rgb(0, 0, 0);
-    margin-top: -15px;
-
-
 }
 
 .cantidad-productos {
-    width: 100px;
-    height: 20px;
-    text-align: center;
-    border-radius: 20px;
-    border:2px solid rgba(77, 107, 107, 0.315);
-    margin-top: -34px;
-    margin-left: 20px;
+    width: 80px;
+    height: 80px;
 }
 
 .btn-comprar {
-    width: 180px;
-    height: 40px;
-    border-radius: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    border:none;
+    width: 80px;
+    height: 80px;
 }
 
 .ocultar {
