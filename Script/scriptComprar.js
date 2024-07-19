@@ -1,7 +1,7 @@
 "use strict"
 
 // Informacion sobre los productos ------------------------------------------------------------------------------
-let productosAlmacen = ["Fideos", "Arroz", "Atún", "Carne"]
+let productosAlmacen = ["Fideos", "Arroz", "Huevos", "Carne"]
 let preciosAlmacen = [1000, 2000, 3000, 4000];
 let stockAlmacen = [10];
 let imagenesAlmacen = ["Script/fideos.jpeg"]
@@ -11,19 +11,19 @@ let preciosBebidas = [1000, 2000, 3000, 4000];
 let stockBebidas = [10];
 let imagenesBebidas = ["Script/fideos.jpeg"]
 
-let productosLacteos = ["Leche", "Queso", "Yogurt", "Queso Crema"]
+let productosLacteos = ["Leche", "Queso", "Yogurt", "Manteca"]
 let preciosLacteos = [1000, 2000, 3000, 4000];
 let stockLacteos = [10];
 let imagenesLacteos = ["Script/fideos.jpeg"]
 
-let productosPanaderia = ["Pan", "Harina", "Pan Integral", "Pan Lactal"]
+let productosPanaderia = ["Pan", "Harina", "Prepizzas", "Medialunas"]
 let preciosPanaderia = [1000, 2000, 3000, 4000];
 let stockPanaderia = [10];
 let imagenesPanaderia = ["Script/fideos.jpeg"]
 
 // Autorrellenado de informacion ------------------------------------------------------------------------------
 function llenarInformacionProductos(producto, precio, imagen, seccion) {
-    for (let i = 0; i < productosAlmacen.length; i++) {
+    for (let i = 0; i < producto.length; i++) {
         let seccionComprar = document.getElementById(seccion)
         //crea contenedor
         let contenedorSeccion = document.createElement("div")
@@ -56,16 +56,14 @@ function llenarInformacionProductos(producto, precio, imagen, seccion) {
         let inputCantidad = document.createElement("input")
         inputCantidad.setAttribute("type", "number")
         inputCantidad.setAttribute("placeholder", "Cantidad")
-        inputCantidad.setAttribute("class", "input-cantidad")
-        inputCantidad.setAttribute("id", "input-cantidad")
+        inputCantidad.setAttribute("class", seccion + i)
         contenedorSeccion.appendChild(inputCantidad)
 
         //crea input de agregar
         let inputAgregar = document.createElement("input")
         inputAgregar.setAttribute("type", "button")
         inputAgregar.setAttribute("value", "Agregar")
-        inputAgregar.setAttribute("class", "input-agregar")
-        inputAgregar.setAttribute("id", "input-agregar")
+        inputAgregar.setAttribute("id", seccion + i)
         contenedorSeccion.appendChild(inputAgregar)
 
         contenedorSeccion.setAttribute("class", " contenedor-seccion")
@@ -74,19 +72,54 @@ function llenarInformacionProductos(producto, precio, imagen, seccion) {
     }
 }
 
-llenarInformacionProductos (productosAlmacen, preciosAlmacen, imagenesAlmacen, "almacen")
-llenarInformacionProductos (productosBebidas, preciosBebidas, imagenesBebidas, "bebidas")
-llenarInformacionProductos (productosLacteos, preciosLacteos, imagenesLacteos, "lacteos")
-llenarInformacionProductos (productosPanaderia, preciosPanaderia, imagenesPanaderia, "panaderia")
+llenarInformacionProductos(productosAlmacen, preciosAlmacen, imagenesAlmacen, "almacen")
+llenarInformacionProductos(productosBebidas, preciosBebidas, imagenesBebidas, "bebidas")
+llenarInformacionProductos(productosLacteos, preciosLacteos, imagenesLacteos, "lacteos")
+llenarInformacionProductos(productosPanaderia, preciosPanaderia, imagenesPanaderia, "panaderia")
 
 
 
 //Validacion de inputs ------------------------------------------------------------------------------
-let btnAgregar = document.getElementById("input-agregar")
-btnAgregar.addEventListener("click", function () {
-    let numero = document.getElementById("input-cantidad").value
-    console.log(numero)
+
+let secciones = ["almacen", "bebidas", "lacteos", "panaderia"]
+
+//recordatorio (x si me olvido xd) REPETIR ESTO SEGUN EL ARRAY SECCIONES
+const btn = document.getElementById("almacen0")
+btn.addEventListener("click", function () {
+    const input = document.getElementsByClassName("almacen0")[0].value
+    console.log(input)
 })
+
+const btn1 = document.getElementById("almacen1")
+btn1.addEventListener("click", function () {
+    const input = document.getElementsByClassName("almacen1")[0].value
+    console.log(input)
+})
+
+const btn2 = document.getElementById("almacen2")
+btn2.addEventListener("click", function () {
+    const input = document.getElementsByClassName("almacen2")[0].value
+    console.log(input)
+})
+
+const btn3 = document.getElementById("almacen3")
+btn3.addEventListener("click", function () {
+    const input = document.getElementsByClassName("almacen3")[0].value
+    console.log(input)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //Funcionamiento del botón que clasifica los productos ----------------------------------------------
