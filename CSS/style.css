@@ -30,8 +30,8 @@ footer {
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    border-top-left-radius:5px ;
-    border-top-right-radius:5px ;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .seccion-titulo {
@@ -48,7 +48,7 @@ footer {
     width: 90px;
     height: 90px;
     border-radius: 5px;
-} 
+}
 
 .link {
     border-radius: 10px;
@@ -75,10 +75,10 @@ footer {
     text-align: center;
     color: (50, 68, 68);
     font-size: 18px;
- }
+}
 
 a:hover {
-    color:#24A19C;
+    color: #ff604081;
 }
 
 .ofertas {
@@ -88,11 +88,11 @@ a:hover {
     border-radius: 5px;
 }
 
-.ofertas-titulo {   
-    color:  rgb(50, 68, 68);
+.ofertas-titulo {
+    color: rgb(50, 68, 68);
     font-size: 25px;
     font-weight: bold;
-    margin-left:8px;
+    margin-left: 8px;
     background-color: #ffffff;
 }
 
@@ -122,9 +122,9 @@ a:hover {
     align-items: center;
 }
 
-.quienes-somos-titulo { 
-    text-align: center  ;
-    color:  rgb(50, 68, 68);
+.quienes-somos-titulo {
+    text-align: center;
+    color: rgb(50, 68, 68);
     font-size: 30px;
     font-weight: bold;
 
@@ -139,22 +139,22 @@ a:hover {
     font-size: 20px;
     text-indent: 30px;
     text-align: justify;
-    margin-left:20px;
+    margin-left: 20px;
 
-} 
+}
 
 .foto-supermercado {
-    width: 250px;   
+    width: 250px;
     height: 250px;
     border-radius: 20px;
-    margin:20px;
+    margin: 20px;
 }
 
 .contenedor-productos {
     width: 1200px;
     margin-top: 20px;
     border-radius: 20px;
-    background-color:#6ebfb644;
+    background-color: #6ebfb644;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -193,4 +193,63 @@ a:hover {
 
 .ocultar {
     display: none;
+}
+
+.section-contacto {
+    display: flex;
+    justify-content: center;
+    background-color: #6ebfb644;
+    width: 1200px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+}
+
+.formulario {
+    width: 300px;
+    height: auto;
+    background-color: #0b353342;
+    margin: 20px;
+    border-radius: 20px;
+}
+
+.titulo-de-formulario {
+    text-align: center;
+    margin-bottom: -1px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.37);
+}
+
+.texto-de-formulario {
+    display: flex;
+    justify-content: center;
+}
+
+.form-categoria {
+    text-align: center;
+    font-weight: bold;
+    
+}
+
+.respuesta-formulario {
+    width: 250px;
+    border: 1.5px solid #0b3533;
+    border-radius: 5px;
+}
+
+.btn-enviar {
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: #0b35338a;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    font-weight: bold;
+}
+
+.btn-enviar:hover {
+    color: #0b3533;
 }
