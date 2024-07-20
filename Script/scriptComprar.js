@@ -1,28 +1,28 @@
 "use strict"
 
-// Informacion sobre los productos ------------------------------------------------------------------------------
+// Informacion sobre los productos ------------------------------------------------------------------
 let productosAlmacen = ["Fideos", "Arroz", "Huevos", "Carne"]
 let preciosAlmacen = [1000, 2000, 3000, 4000];
 let stockAlmacen = [10];
-let imagenesAlmacen = ["Script/fideos.jpeg"]
+let imagenesAlmacen = ["Media/fideos.jpeg", "Media/arroz.png"]
 
 let productosBebidas = ["Coca Cola", "Sprite", "Fanta", "Agua"]
 let preciosBebidas = [1000, 2000, 3000, 4000];
 let stockBebidas = [10];
-let imagenesBebidas = ["Script/fideos.jpeg"]
+let imagenesBebidas = []
 
 let productosLacteos = ["Leche", "Queso", "Yogurt", "Manteca"]
 let preciosLacteos = [1000, 2000, 3000, 4000];
 let stockLacteos = [10];
-let imagenesLacteos = ["Script/fideos.jpeg"]
+let imagenesLacteos = []
 
 let productosPanaderia = ["Pan", "Harina", "Prepizzas", "Medialunas"]
 let preciosPanaderia = [1000, 2000, 3000, 4000];
 let stockPanaderia = [10];
-let imagenesPanaderia = ["Script/fideos.jpeg"]
+let imagenesPanaderia = []
 
 
-// Autorrellenado de informacion ------------------------------------------------------------------------------
+// Autorrellenado de informacion --------------------------------------------------------------------
 function llenarInformacionProductos(producto, precio, imagen, seccion) {
     for (let i = 0; i < producto.length; i++) {
         let seccionComprar = document.getElementById(seccion)
@@ -57,14 +57,14 @@ function llenarInformacionProductos(producto, precio, imagen, seccion) {
         let inputCantidad = document.createElement("input")
         inputCantidad.setAttribute("type", "number")
         inputCantidad.setAttribute("placeholder", "Cantidad")
-        inputCantidad.setAttribute("class", seccion + i)
+        inputCantidad.setAttribute("id", producto[i])
         contenedorSeccion.appendChild(inputCantidad)
 
         //crea input de agregar
         let inputAgregar = document.createElement("input")
         inputAgregar.setAttribute("type", "button")
         inputAgregar.setAttribute("value", "Agregar")
-        inputAgregar.setAttribute("id", seccion + i)
+        inputAgregar.setAttribute("id", producto[i] + i)
         contenedorSeccion.appendChild(inputAgregar)
 
         contenedorSeccion.setAttribute("class", " contenedor-seccion")
@@ -73,19 +73,45 @@ function llenarInformacionProductos(producto, precio, imagen, seccion) {
     }
 }
 
-llenarInformacionProductos(productosAlmacen, preciosAlmacen, imagenesAlmacen, "almacen")
-llenarInformacionProductos(productosBebidas, preciosBebidas, imagenesBebidas, "bebidas")
-llenarInformacionProductos(productosLacteos, preciosLacteos, imagenesLacteos, "lacteos")
-llenarInformacionProductos(productosPanaderia, preciosPanaderia, imagenesPanaderia, "panaderia")
-
-
-
 //Validacion de inputs ------------------------------------------------------------------------------
 
-let secciones = ["almacen", "bebidas", "lacteos", "panaderia"]
+function accederInputs(producto,stock) {
+    for (let i = 0; i < producto.length; i++) {
+        let btnAgregar = document.getElementById(producto[i] + i)
+        btnAgregar.addEventListener("click", () => {
+            let input = document.getElementById(producto[i]).value
+            console.log("Se compran " + input + " " + producto[i])
+            if (input < 0) { //comprobacion cantidad no negativa
+                alert("La cantidad ingresada debe ser mayor a 0")
+            } else {
+                if (input > stock[i]) //comprobación stock
+                    alert("No puedes agregar " + input + " " + producto[i] + " ya que la cantidad excede nuestro stock"+" "+"("+stock[i]+" unidades" + ")")
+            }
+        })
+    }
+
+}
+
+//LLamado de funciones ------------------------------------------------------------------------------
+llenarInformacionProductos(productosAlmacen, preciosAlmacen, imagenesAlmacen, "almacen")
+accederInputs(productosAlmacen,stockAlmacen)
+
+llenarInformacionProductos(productosBebidas, preciosBebidas, imagenesBebidas, "bebidas")
+accederInputs(productosBebidas, stockBebidas)
+
+llenarInformacionProductos(productosLacteos, preciosLacteos, imagenesLacteos, "lacteos")
+accederInputs(productosLacteos, stockLacteos)
+
+llenarInformacionProductos(productosPanaderia, preciosPanaderia, imagenesPanaderia, "panaderia")
+accederInputs(productosPanaderia, stockPanaderia)
+
+
+
+
+
 
 //recordatorio (x si me olvido xd) REPETIR ESTO SEGUN EL ARRAY SECCIONES
-const btn = document.getElementById("almacen0")
+/*const btn = document.getElementById("almacen0")
 btn.addEventListener("click", function () {
     const input = document.querySelector(".almacen0").value
     console.log(input)
@@ -107,7 +133,14 @@ const btn3 = document.getElementById("almacen3")
 btn3.addEventListener("click", function () {
     const input = document.querySelector(".almacen3").value
     console.log(input)
-})
+}) */
+
+
+
+
+
+
+
 
 
 
@@ -124,14 +157,14 @@ for (let i = 0; i < clasificacion.length; i++) {
 
         switch (opcionSeleccionada) {
             case "Todo":
-                for (i=0; i < btnSeleccion.length; i++) {
+                for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.remove("ocultar")
                     btnCategorias[i].classList.remove("ocultar")
                 }
                 break;
 
             case "Almacén":
-                for (i=0; i < btnSeleccion.length; i++) {
+                for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.add("ocultar")
                     btnCategorias[i].classList.add("ocultar")
                 }
@@ -140,16 +173,16 @@ for (let i = 0; i < clasificacion.length; i++) {
                 break;
 
             case "Bebidas":
-                for (i=0; i < btnSeleccion.length; i++) {
+                for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.add("ocultar")
                     btnCategorias[i].classList.add("ocultar")
-                }                
+                }
                 btnCategorias[1].classList.remove("ocultar");
                 btnSeleccion[1].classList.remove("ocultar");
                 break;
 
             case "Lácteos":
-                for (i=0; i < btnSeleccion.length; i++) {
+                for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.add("ocultar")
                     btnCategorias[i].classList.add("ocultar")
                 }
@@ -158,12 +191,12 @@ for (let i = 0; i < clasificacion.length; i++) {
                 break;
 
             case "Panadería":
-                for (i=0; i < btnSeleccion.length; i++) {
+                for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.add("ocultar")
                     btnCategorias[i].classList.add("ocultar")
                 }
                 btnCategorias[3].classList.remove("ocultar");
-                btnSeleccion[3].classList.remove("ocultar");  
+                btnSeleccion[3].classList.remove("ocultar");
                 break;
         }
     })
@@ -171,7 +204,7 @@ for (let i = 0; i < clasificacion.length; i++) {
 
 
 
-
+/*
 for (let i=0; i < btnSeleccion.length; i++) {
     for (let i2=0; i2 < productosAlmacen; i2++) {
         const btn = document.getElementById(btnSeleccion[i]+i2);
@@ -208,7 +241,7 @@ for (let i = 0; i < btnSeleccion.length; i++) {
 
 
 
-
+*/
 
 
 

@@ -191,6 +191,12 @@ a:hover {
     border: none;
 }
 
+.imagen-producto {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+}
+
 .ocultar {
     display: none;
 }
