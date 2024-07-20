@@ -21,6 +21,7 @@ let preciosPanaderia = [1000, 2000, 3000, 4000];
 let stockPanaderia = [10];
 let imagenesPanaderia = ["Script/fideos.jpeg"]
 
+
 // Autorrellenado de informacion ------------------------------------------------------------------------------
 function llenarInformacionProductos(producto, precio, imagen, seccion) {
     for (let i = 0; i < producto.length; i++) {
@@ -30,7 +31,7 @@ function llenarInformacionProductos(producto, precio, imagen, seccion) {
 
         //crea imagen
         let imagenProducto = document.createElement("img")
-        imagenProducto.setAttribute("url", imagen[i])
+        imagenProducto.setAttribute("src", imagen[i])
         imagenProducto.setAttribute("alt", producto[i])
         imagenProducto.setAttribute("class", "imagen-producto")
         imagenProducto.setAttribute("id", "imagen-producto")
@@ -86,43 +87,35 @@ let secciones = ["almacen", "bebidas", "lacteos", "panaderia"]
 //recordatorio (x si me olvido xd) REPETIR ESTO SEGUN EL ARRAY SECCIONES
 const btn = document.getElementById("almacen0")
 btn.addEventListener("click", function () {
-    const input = document.getElementsByClassName("almacen0")[0].value
+    const input = document.querySelector(".almacen0").value
     console.log(input)
 })
 
 const btn1 = document.getElementById("almacen1")
 btn1.addEventListener("click", function () {
-    const input = document.getElementsByClassName("almacen1")[0].value
+    const input = document.querySelector(".almacen1").value
     console.log(input)
 })
 
 const btn2 = document.getElementById("almacen2")
 btn2.addEventListener("click", function () {
-    const input = document.getElementsByClassName("almacen2")[0].value
+    const input = document.querySelector(".almacen2").value
     console.log(input)
 })
 
 const btn3 = document.getElementById("almacen3")
 btn3.addEventListener("click", function () {
-    const input = document.getElementsByClassName("almacen3")[0].value
+    const input = document.querySelector(".almacen3").value
     console.log(input)
 })
-
-
-
-
-
-
-
-
-
-
 
 
 
 
 
 //Funcionamiento del botón que clasifica los productos ----------------------------------------------
+let btnSeleccion = document.getElementsByClassName("seccion-comprar");
+let btnCategorias = document.getElementsByClassName("btn-categoria");
 let clasificacion = document.getElementsByClassName("categoria-productos");
 
 for (let i = 0; i < clasificacion.length; i++) {
@@ -131,39 +124,92 @@ for (let i = 0; i < clasificacion.length; i++) {
 
         switch (opcionSeleccionada) {
             case "Todo":
-                seccionAlmacen.classList.remove("ocultar");
-                seccionBebidas.classList.remove("ocultar");
-                seccionLacteos.classList.remove("ocultar");
-                seccionPanaderia.classList.remove("ocultar");
+                for (i=0; i < btnSeleccion.length; i++) {
+                    btnSeleccion[i].classList.remove("ocultar")
+                    btnCategorias[i].classList.remove("ocultar")
+                }
                 break;
 
             case "Almacén":
-                seccionAlmacen.classList.remove("ocultar");
-                seccionBebidas.classList.add("ocultar");
-                seccionLacteos.classList.add("ocultar");
-                seccionPanaderia.classList.add("ocultar");
+                for (i=0; i < btnSeleccion.length; i++) {
+                    btnSeleccion[i].classList.add("ocultar")
+                    btnCategorias[i].classList.add("ocultar")
+                }
+                btnCategorias[0].classList.remove("ocultar");
+                btnSeleccion[0].classList.remove("ocultar");
                 break;
 
             case "Bebidas":
-                seccionAlmacen.classList.add("ocultar");
-                seccionBebidas.classList.remove("ocultar");
-                seccionLacteos.classList.add("ocultar");
-                seccionPanaderia.classList.add("ocultar");
+                for (i=0; i < btnSeleccion.length; i++) {
+                    btnSeleccion[i].classList.add("ocultar")
+                    btnCategorias[i].classList.add("ocultar")
+                }                
+                btnCategorias[1].classList.remove("ocultar");
+                btnSeleccion[1].classList.remove("ocultar");
                 break;
 
             case "Lácteos":
-                seccionAlmacen.classList.add("ocultar");
-                seccionBebidas.classList.add("ocultar");
-                seccionLacteos.classList.remove("ocultar");
-                seccionPanaderia.classList.add("ocultar");
+                for (i=0; i < btnSeleccion.length; i++) {
+                    btnSeleccion[i].classList.add("ocultar")
+                    btnCategorias[i].classList.add("ocultar")
+                }
+                btnCategorias[2].classList.remove("ocultar");
+                btnSeleccion[2].classList.remove("ocultar");
                 break;
 
             case "Panadería":
-                seccionAlmacen.classList.add("ocultar");
-                seccionBebidas.classList.add("ocultar");
-                seccionLacteos.classList.add("ocultar");
-                seccionPanaderia.classList.remove("ocultar");
+                for (i=0; i < btnSeleccion.length; i++) {
+                    btnSeleccion[i].classList.add("ocultar")
+                    btnCategorias[i].classList.add("ocultar")
+                }
+                btnCategorias[3].classList.remove("ocultar");
+                btnSeleccion[3].classList.remove("ocultar");  
                 break;
         }
     })
 }
+
+
+
+
+for (let i=0; i < btnSeleccion.length; i++) {
+    for (let i2=0; i2 < productosAlmacen; i2++) {
+        const btn = document.getElementById(btnSeleccion[i]+i2);
+        btn.addEventListener("click", function () {
+            let input = document.querySelector("." + btnSeleccion[i]+i2).value
+            console.log(input)
+        })
+    }
+    
+}
+
+// Corrección del manejo de eventos
+for (let i = 0; i < btnCategorias.length; i++) {
+    btnCategorias[i].addEventListener("click", function () {
+        let inputs = document.querySelectorAll("." + btnCategorias[i].value.toLowerCase());
+        inputs.forEach(input => {
+            input.add
+        })
+    })
+}
+
+for (let i = 0; i < btnSeleccion.length; i++) {
+    let seccion = btnSeleccion[i];
+    let botones = seccion.getElementsByTagName("input");
+    for (let j = 0; j < botones.length; j++) {
+        if (botones[j].type === "button") {
+            botones[j].addEventListener("click", function () {
+                let input = document.querySelector("." + botones[j].id).value;
+                console.log(input);
+            });
+        }
+    }
+}
+
+
+
+
+
+
+
+
