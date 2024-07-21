@@ -1,6 +1,8 @@
 "use strict"
 
-// Informacion sobre los productos ------------------------------------------------------------------
+// Informacion sobre los productos --------------------------------------------------------------------------
+let secciones = ["almacen", "bebidas", "lacteos", "panaderia"]
+
 let productosAlmacen = ["Fideos", "Arroz", "Huevos", "Carne"]
 let preciosAlmacen = [1000, 2000, 3000, 4000];
 let stockAlmacen = [10, 10, 10, 10];
@@ -21,8 +23,25 @@ let preciosPanaderia = [1000, 2000, 3000, 4000];
 let stockPanaderia = [10, 10, 10, 10];
 let imagenesPanaderia = []
 
+let productos = productosAlmacen.concat(productosBebidas, productosLacteos, productosPanaderia);
 
-// Autorrellenado de informacion --------------------------------------------------------------------
+
+//Llamado de funciones --------------------------------------------------------------------------------------
+llenarInformacionProductos(productosAlmacen, preciosAlmacen, imagenesAlmacen, "almacen")
+accederInputs(productosAlmacen, preciosAlmacen, stockAlmacen)
+
+llenarInformacionProductos(productosBebidas, preciosBebidas, imagenesBebidas, "bebidas")
+accederInputs(productosBebidas, preciosBebidas, stockBebidas)
+
+llenarInformacionProductos(productosLacteos, preciosLacteos, imagenesLacteos, "lacteos")
+accederInputs(productosLacteos, preciosLacteos, stockLacteos)
+
+llenarInformacionProductos(productosPanaderia, preciosPanaderia, imagenesPanaderia, "panaderia")
+accederInputs(productosPanaderia, preciosPanaderia, stockPanaderia)
+
+calcularCosteTotal(productos)
+
+// Autorrellenado de informacion ----------------------------------------------------------------------------
 function llenarInformacionProductos(producto, precio, imagen, seccion) {
     for (let i = 0; i < producto.length; i++) {
         let seccionComprar = document.getElementById(seccion)
@@ -50,118 +69,85 @@ function llenarInformacionProductos(producto, precio, imagen, seccion) {
         precioProducto.setAttribute("class", "precio-producto")
         precioProducto.setAttribute("id", "precio-producto")
         let textoPrecioProducto = document.createTextNode(precio[i] + "$")
-        descripcionProducto.appendChild(textoPrecioProducto)
+        precioProducto.appendChild(textoPrecioProducto)
         contenedorSeccion.appendChild(precioProducto)
 
         //crea input de cantidad
         let inputCantidad = document.createElement("input")
         inputCantidad.setAttribute("type", "number")
         inputCantidad.setAttribute("placeholder", "Cantidad")
-        inputCantidad.setAttribute("id", producto[i])
+        inputCantidad.setAttribute("value", "0")
+        inputCantidad.setAttribute("class", "input-cantidad")
+        inputCantidad.setAttribute("id", "input-cantidad-" + producto[i])
         contenedorSeccion.appendChild(inputCantidad)
 
         //crea input de agregar
         let inputAgregar = document.createElement("input")
         inputAgregar.setAttribute("type", "button")
         inputAgregar.setAttribute("value", "Agregar")
-        inputAgregar.setAttribute("id", producto[i] + i)
+        inputAgregar.setAttribute("class", "btn-agregar")
+        inputAgregar.setAttribute("id", "btn-agregar-" + producto[i])
         contenedorSeccion.appendChild(inputAgregar)
 
-        contenedorSeccion.setAttribute("class", " contenedor-seccion")
-        contenedorSeccion.setAttribute("id", " contenedor-seccion")
+        contenedorSeccion.setAttribute("class", "contenedor-seccion")
+        contenedorSeccion.setAttribute("id", "contenedor-seccion")
         seccionComprar.appendChild(contenedorSeccion)
     }
 }
 
+
 //Validacion de inputs, suma de precios de una categoria ----------------------------------------------------
-
-function accederInputs(producto, stock, precio) {
-    let sumaPrecios = document.createElement("input")
-    sumaPrecios.setAttribute("type", "number")
-    sumaPrecios.setAttribute("value", "0")
-    let multiplicarPrecio = 0;
-
+function accederInputs(producto, precio, stock) {
     for (let i = 0; i < producto.length; i++) {
-        let btnAgregar = document.getElementById(producto[i] + i)
+        let btnAgregar = document.getElementById("btn-agregar-" + producto[i])
         btnAgregar.addEventListener("click", () => {
-            let input = document.getElementById(producto[i]).value
-            if (input <= 0) { //comprobacion cantidad no negativa
-                alert("La cantidad ingresada debe ser mayor a 0")
-            } else if (input > stock[i]) {//comprobación stock
-                    alert("No puedes agregar " + input + " " + producto[i] + " ya que la cantidad excede nuestro stock " + "(" + stock[i]+ " unidades" + ")")
+            let input = document.getElementById("input-cantidad-" + producto[i]).value
+            if (input < 0) {
+                alert("¡La cantidad ingresada no debe ser menor a 0!")
+            } else if (input > stock[i]) {
+                alert("¡La cantidad ingresada (" + input + ") es mayor a nuestro stock (" + stock[i] + ")! por favor ingrese una cantidad menor.")
             } else {
-                console.log("Se compran " + input + " " + producto[i])
-                multiplicarPrecio = input * precio[i]
-                sumaPrecios += multiplicarPrecio;
+                console.log(input * precio[i])
+                let almacenPrecios = document.getElementById("carrito")
+                let precioProducto = document.createElement("p")
+                precioProducto.setAttribute("id", "precio-" + producto[i])
+                precioProducto.setAttribute("class", "ocultar")
+                let precioProductoValor = document.createTextNode(input * precio[i])
+                precioProducto.appendChild(precioProductoValor)
+                almacenPrecios.appendChild(precioProducto)
             }
         })
-        btnAgregar.addEventListener("click", () => { //aparece la factura
-            let factura = document.querySelector(".factura");
-            factura.classList.remove("ocultar");
-        })
+
     }
-    for (let i = 0; i < producto.length; i++) {
-        sumaPrecios.setAttribute("id", "resultado" + i)
-    }
-}
-
-let prueba = document.getElementById("resultado" + 0)
-console.log(prueba) //POR QUÉ SALE NULL????
-
-
-//Suma de precios de todas las categorias
-function sumarPrecios(categorias) { 
-    let sumaFinal = 0;
-    for (let i = 0; i < categorias.length; i++) {
-        let precioCategoria = document.getElementById("resultado" + i);
-        sumaFinal += precioCategoria;
-        let valor = parseFloat(precioCategoria.textContent); //SEGURAMENTE CAMBIAR/borrar -GPT
-        sumaFinal += valor;
-    }
-    let precioFinal = document.createElement("p");
-    precioFinal.setAttribute("id", "precio-final")
-    let textoPrecioFinal = document.createTextNode("Debe en total: $" + sumaFinal);
-    precioFinal.appendChild(textoPrecioFinal);
-}
-
-//Creación de un carrito de compras
-function comprarProductos(){
-    let factura = document.querySelector(".factura");
-
-    //crea titulo de factura
-    let tituloFactura = document.createElement("h2");
-    let textoFactura = document.createTextNode("Factura");
-    tituloFactura.appendChild(textoFactura);
-    factura.appendChild(tituloFactura);
-
-    //agrega el precio final
-    let precioFinal = document.getElementById("precio-final");
-    factura.appendChild(precioFinal);
-
-    //crea agradecimiento por compra
-    let graciasCompra = document.querySelector(".agradecimiento-compra");
-    let gracias = document.createElement("h3");
-    let textoGracias = document.createTextNode("¡Gracias por su compra!");
-    gracias.appendChild(textoGracias);
-    graciasCompra.appendChild(gracias);
-
-    //crea btn comprar
-    let btnComprar = document.createElement("input")
-    btnComprar.setAttribute("type", "button")
-    btnComprar.setAttribute("value", "Comprar");
-    btnComprar.setAttribute("id", "btn-comprar");
-    btnComprar.addEventListener ("click", function(e){
-        factura.addEventListener.add("ocultar")
-        graciasCompra.addEventListener.remove("ocultar") 
-    })
-    factura.appendChild(btnComprar)
 
 }
 
+//Calcular precio total--------------------------------------------------------------------------------------
 
-//Funcionamiento del botón que clasifica los productos ----------------------------------------------
-let btnSeleccion = document.getElementsByClassName("seccion-comprar");
-let btnCategorias = document.getElementsByClassName("btn-categoria");
+function calcularCosteTotal(producto) {
+    let sumaPreciosSeccion = 0;
+    let btnComprar = document.getElementById("btn-comprar");
+    btnComprar.addEventListener("click", () => {
+        for (let i = 0; i < producto.length; i++) {
+            let input = document.getElementById("precio-" + producto[i]);
+            if (input) {
+                let precioText = input.innerText;
+                let precioNum = parseFloat(precioText);
+                sumaPreciosSeccion += precioNum;
+            }
+        }
+        let carrito = document.getElementById("carrito")
+        let precioFinal = document.createElement ("p")
+        let precioFinalTexto = document.createTextNode (sumaPreciosSeccion + "$")
+        precioFinal.appendChild(precioFinalTexto)
+        carrito.appendChild (precioFinal)
+            
+    });
+};
+
+
+//Funcionamiento del botón que clasifica los productos ------------------------------------------------------
+let btnSeleccion = document.getElementsByClassName("seccion-productos");
 let clasificacion = document.getElementsByClassName("categoria-productos");
 
 for (let i = 0; i < clasificacion.length; i++) {
@@ -172,69 +158,42 @@ for (let i = 0; i < clasificacion.length; i++) {
             case "Todo":
                 for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.remove("ocultar")
-                    btnCategorias[i].classList.remove("ocultar")
                 }
                 break;
 
             case "Almacén":
                 for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.add("ocultar")
-                    btnCategorias[i].classList.add("ocultar")
-                }
-                btnCategorias[0].classList.remove("ocultar");
-                btnSeleccion[0].classList.remove("ocultar");
-                break;
 
+                }
+                btnSeleccion[0].classList.remove("ocultar");
+
+                break;
             case "Bebidas":
                 for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.add("ocultar")
-                    btnCategorias[i].classList.add("ocultar")
                 }
-                btnCategorias[1].classList.remove("ocultar");
                 btnSeleccion[1].classList.remove("ocultar");
-                break;
 
+                break;
             case "Lácteos":
                 for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.add("ocultar")
-                    btnCategorias[i].classList.add("ocultar")
-                }
-                btnCategorias[2].classList.remove("ocultar");
-                btnSeleccion[2].classList.remove("ocultar");
-                break;
 
+                }
+                btnSeleccion[2].classList.remove("ocultar");
+
+                break;
             case "Panadería":
                 for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.add("ocultar")
-                    btnCategorias[i].classList.add("ocultar")
                 }
-                btnCategorias[3].classList.remove("ocultar");
                 btnSeleccion[3].classList.remove("ocultar");
+
                 break;
         }
     })
 }
-
-
-
-//LLamado de funciones ------------------------------------------------------------------------------
-llenarInformacionProductos(productosAlmacen, preciosAlmacen, imagenesAlmacen, "almacen")
-accederInputs(productosAlmacen,stockAlmacen, preciosAlmacen)
-
-llenarInformacionProductos(productosBebidas, preciosBebidas, imagenesBebidas, "bebidas")
-accederInputs(productosBebidas, stockBebidas, preciosBebidas)
-
-llenarInformacionProductos(productosLacteos, preciosLacteos, imagenesLacteos, "lacteos")
-accederInputs(productosLacteos, stockLacteos, preciosLacteos)
-
-llenarInformacionProductos(productosPanaderia, preciosPanaderia, imagenesPanaderia, "panaderia")
-accederInputs(productosPanaderia, stockPanaderia, preciosPanaderia)
-
-/*
-sumarPrecios(btnSeleccion);
-comprarProductos();
-*/
-
 
 
 

@@ -150,37 +150,58 @@ a:hover {
     margin: 20px;
 }
 
-.contenedor-productos {
+.cabecera-seccion-comprar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.btn-comprar {
+    background-color: #ffffff;
+    margin: 20px;
+    width: 120px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #0b3533;
+    border-radius: 10px;
+    border: none;
+}
+
+.categoria-productos {
+    width: 300px;
+    height: 30px;
+    margin: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #0b3533;
+    border-color: #0b3533;
+}
+
+.btn-comprar:hover {
+    color: #000000;
+}
+
+.section-general {
     width: 1200px;
     margin-top: 20px;
     border-radius: 20px;
     background-color: #6ebfb644;
     margin-left: auto;
     margin-right: auto;
+}
+
+.seccion-productos {
+    width: 1000px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
-.seccion-comprar {
-    width: 1200px;
-    border-radius: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: auto;
-    margin-right: auto;
-
-}
-
-.contenedor-seccion {
-    width: 200px;
-    height: 300px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    margin: 10px;
-}
-
-.btn-categoria {
+.categoria {
     width: 100px;
     height: 40px;
     margin: 10px;
@@ -191,10 +212,44 @@ a:hover {
     border: none;
 }
 
+.contenedor-seccion {
+    width: 200px;
+    height: 300px;
+    background-color: #ffffff;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+
 .imagen-producto {
     width: 150px;
     height: 150px;
-    border-radius: 20px;
+}
+
+.descripcion-producto {
+    color: #2b2a2a;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: -5px;
+    text-align: center;
+}
+
+.precio-producto {
+    color: #d33232;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.input-cantidad {
+    width: 100px;
+    height: 20px;
+}
+
+.btn-agregar {
+    width: 100px;
+    height: 20px;
 }
 
 .ocultar {
@@ -234,7 +289,7 @@ a:hover {
 .form-categoria {
     text-align: center;
     font-weight: bold;
-    
+
 }
 
 .respuesta-formulario {

@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="seccion-titulo"> 
+    <div class="seccion-titulo">
         <p>Supermercado Luna</p>
     </div>
     <header>
@@ -20,42 +20,34 @@
             <a href="comprar.html" class="link"> Comprar</a>
             <a href="contacto.html" class="link"> Contacto</a>
         </div>
-            <input type="text" class="buscador" placeholder="¿Qué estás buscando?">
+        <input type="text" class="buscador" placeholder="¿Qué estás buscando?">
     </header>
 
-    <section>
+    <section class="section-general">
         <div class="contenedor-productos">
-            <select class="categoria-productos">
-                <option value="Todo">Todo</option>
-                <option value="Almacén">Almacén</option>
-                <option value="Bebidas">Bebidas</option>
-                <option value="Lácteos">Lácteos</option>
-                <option value="Panadería">Panadería</option>
-            </select>
+            
+            <div class="cabecera-seccion-comprar">
+                    <select class="categoria-productos">
+                        <option value="Todo">Todo</option>
+                        <option value="Almacén">Almacén</option>
+                        <option value="Bebidas">Bebidas</option>
+                        <option value="Lácteos">Lácteos</option>
+                        <option value="Panadería">Panadería</option>
+                    </select>
+    
+                <div id="carrito">
+                    <input type="button" id="btn-comprar" value="Comprar">
 
-            <input class="btn-categoria" type="button" value="Almacén">
-            <div class="seccion-comprar" id="almacen">
-            </div>   
-
-            <input class="btn-categoria" type="button" value="Bebidas">  
-            <div class="seccion-comprar" id="bebidas">
-
+                </div>
             </div>
 
-            <input class="btn-categoria" type="button" value="Lácteos">  
-            <div class="seccion-comprar" id="lacteos">
+            <div class="seccion-productos" id="almacen"></div>
+            
+            <div class="seccion-productos" id="bebidas"> </div>
 
-            </div>
+            <div class="seccion-productos" id="lacteos"> </div>
 
-            <input class="btn-categoria" type="button" value="Panadería">
-            <div class="seccion-comprar" id="panaderia">
-
-            </div>  
-
-        </div>
-        <div class="carrito">
-            <div class="factura ocultar"></div>
-            <div class="agradecimiento-compra ocultar"></div>
+            <div class="seccion-productos" id="panaderia"></div>
         </div>
 
     </section>
@@ -65,4 +57,5 @@
     </footer>
     <script src="Script/scriptComprar.js"> </script>
 </body>
+
 </html>
