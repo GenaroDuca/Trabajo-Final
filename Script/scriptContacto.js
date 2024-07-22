@@ -1,4 +1,4 @@
-let formulario = document.getElementById("enviar-formulario").addEventListener("click", function (e) {
+let formulario = document.getElementById("btn-enviar-formulario").addEventListener("click", function (e) {
     let datos = document.getElementsByClassName("respuesta-formulario")
     let datosString = "";
     for (i = 0; i < datos.length; i++) {
@@ -19,4 +19,10 @@ function cerrarFormulario() {
 
     let respuestaFormulario = document.querySelector(".texto-formulario-enviado");
     respuestaFormulario.classList.toggle("ocultar");
+
+    let btnEnviar = document.querySelector(".btn-enviar");
+    btnEnviar.classList.toggle("ocultar");
+
+    let btnConForm = document.querySelector(".form-y-boton"); 
+    btnConForm.classList.toggle("ocultar");
 }

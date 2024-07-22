@@ -9,7 +9,6 @@ header {
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     margin-left: auto;
     margin-right: auto;
     background-color: #ffffff;
@@ -18,7 +17,7 @@ header {
 
 .section-inicio {
     width: 1200px;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -59,26 +58,11 @@ footer {
     text-decoration: none;
     padding: 10px;
     border: 1px solid #0b3533;
-    margin-right: 30px;
-}
-
-.buscador {
-    width: 500px;
-    height: 38px;
-    border-radius: 10px;
-    border: 2px solid #0b3533;
-    background-color: #eaeeee;
-    margin-right: 15px;
-}
-
-::placeholder {
-    text-align: center;
-    color: (50, 68, 68);
-    font-size: 18px;
+    margin: 10px;
 }
 
 a:hover {
-    color: #ff604081;
+    color:#FF5F40 ;
 }
 
 .ofertas {
@@ -312,25 +296,11 @@ a:hover {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .ocultar {
     display: none;
 }
+
+
 
 .section-contacto {
     display: flex;
@@ -343,29 +313,37 @@ a:hover {
     border-radius: 20px;
 }
 
+.form-y-boton {
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .formulario {
     width: 300px;
     height: auto;
-    background-color: #0b353342;
+    background-color: #ffffff;
     margin: 20px;
+    padding: 20px;
     border-radius: 20px;
 }
 
 .titulo-de-formulario {
+    border-radius: 5px;
+    color: #0b3533;
+    width: 300px;
+    margin: auto;
     text-align: center;
-    margin-bottom: -1px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.37);
 }
 
 .texto-de-formulario {
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
 
 .form-categoria {
     text-align: center;
-    font-weight: bold;
-
+    font-size: 15px;
 }
 
 .respuesta-formulario {
@@ -379,14 +357,15 @@ a:hover {
     height: 40px;
     border-radius: 10px;
     border: none;
-    background-color: #0b35338a;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 100px;
-    margin-right: 100px;
+    background-color: #fcfcfc;
     font-weight: bold;
+    margin-bottom:20px;;
 }
 
 .btn-enviar:hover {
     color: #0b3533;
+}
+
+.texto-formulario-enviado {
+
 }
