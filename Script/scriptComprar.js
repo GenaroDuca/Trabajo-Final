@@ -110,11 +110,20 @@ function accederInputs(producto, precio, stock) {
                 let precioProducto = document.createElement("p")
                 precioProducto.setAttribute("class", "precio-producto-factura")
                 precioProducto.setAttribute("id", "precio-" + producto[i])
-                let precioProductoValor = document.createTextNode(input * precio[i])
+                let precioTotal = input * precio[i]
+                let precioProductoValor = document.createTextNode(precioTotal)
+                
                 //RECORDATORIO! para pasar los valores individuales con $ y producto pasar el valor a otra variable
                 // y luego al html
                 precioProducto.appendChild(precioProductoValor)
                 seccionFactura.appendChild(precioProducto)
+                precioProducto.classList.add("ocultar")
+
+                let ProductoEnFactura = document.createElement("p")
+                ProductoEnFactura.setAttribute("class", "producto-en-factura")
+                let textoProductoEnFactura = document.createTextNode("" + producto[i] + ": $" + precioTotal)
+                ProductoEnFactura.appendChild(textoProductoEnFactura)
+                seccionFactura.appendChild(ProductoEnFactura)
             }
         })
 
@@ -140,6 +149,7 @@ function calcularCosteTotal(producto) {
         console.log(sumaPreciosSeccion)
         let seccionFactura = document.getElementById("seccion-factura")
         let precioFinal = document.createElement("p")
+        precioFinal.setAttribute("id", "total-precio")
         let precioFinalTexto = document.createTextNode("Total: $" + sumaPreciosSeccion)
         precioFinal.appendChild(precioFinalTexto)
         seccionFactura.appendChild(precioFinal)

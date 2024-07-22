@@ -290,11 +290,12 @@ a:hover {
     color: #000000;
 }
 
+/*
 .seccion-factura {
     width: 100%;
     height: 20px;
     justify-content: center;
-}
+}*/
 
 .aviso-btn {
     font-weight: bold;
@@ -303,8 +304,17 @@ a:hover {
 }
 
 .seccion-factura {
-    width: 100px;
+    width: 300px;
     height: auto;
+    text-align: center;
+    font-size: 16px;
+    color: #0b3533;
+}
+
+#total-precio {
+    text-align: end;
+    font-weight: bold;
+    margin-top: 20px;
 }
 
 .btn-final {
@@ -317,6 +327,8 @@ a:hover {
     color: #0b3533;
     border-radius: 10px;
     border: none;
+    justify-self: center;
+    margin-left: 30px;
     
 }
 
