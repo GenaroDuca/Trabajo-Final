@@ -66,7 +66,7 @@ footer {
     width: 500px;
     height: 38px;
     border-radius: 10px;
-    border: 1px solid #0b3533;
+    border: 2px solid #0b3533;
     background-color: #eaeeee;
     margin-right: 15px;
 }
@@ -150,76 +150,97 @@ a:hover {
     margin: 20px;
 }
 
-.cabecera-seccion-comprar {
-    width: 100%;
+
+
+
+
+
+
+
+
+
+.section-general {
+    width: 1200px;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 20px;
+    background-color: #6ebfb644;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-evenly;
 }
 
-
-.btn-comprar {
-    background-color: #ffffff;
-    margin: 20px;
-    width: 120px;
-    height: 50px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #0b3533;
-    border-radius: 10px;
+.linea {
+    width: 5px;
+    background-color: #0b3533;
     border: none;
+    border-radius: 5px;
+}
+
+.linea2 {
+    width: 5px;
+    background-color: #0b3533;
+    border: none;
+    border-radius: 5px;
+}
+
+.select-categorias {
+    width: auto;
+    height: 40px;
 }
 
 .categoria-productos {
-    width: 300px;
+    width: 200px;
     height: 30px;
-    margin: 20px;
     border-radius: 10px;
     text-align: center;
     font-size: 18px;
     font-weight: bold;
     color: #0b3533;
     border-color: #0b3533;
+    margin: 10px;
 }
 
-.btn-comprar:hover {
-    color: #000000;
-}
-
-.section-general {
-    width: 1200px;
-    margin-top: 20px;
-    border-radius: 20px;
-    background-color: #6ebfb644;
-    margin-left: auto;
-    margin-right: auto;
+.seccion-categoria-productos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 920px;
+    height: auto;
 }
 
 .seccion-productos {
-    width: 1000px;
+    width: 920px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.filtro  {
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #0b3533;
+    text-align: center;
 }
 
 .categoria {
-    width: 100px;
-    height: 40px;
-    margin: 10px;
-    font-size: 18px;
+    border-radius: 5px;
+    font-size: 20px;
     font-weight: bold;
     color: #0b3533;
-    border-radius: 10px;
-    border: none;
+    text-align: center;
 }
 
 .contenedor-seccion {
     width: 200px;
     height: 300px;
     background-color: #ffffff;
-    margin-left: 30px;
-    margin-bottom: 30px;
     border-radius: 20px;
     text-align: center;
+    margin: 10px;
 }
 
 
@@ -237,7 +258,7 @@ a:hover {
 }
 
 .precio-producto {
-    color: #d33232;
+    color: #000000;
     font-size: 18px;
     font-weight: bold;
 }
@@ -245,12 +266,67 @@ a:hover {
 .input-cantidad {
     width: 100px;
     height: 20px;
+    border-radius: 10px;
 }
 
 .btn-agregar {
     width: 100px;
     height: 20px;
 }
+
+.btn-comprar {
+    background-color: #ffffff;
+    margin: 20px;
+    width: 220px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #0b3533;
+    border-radius: 10px;
+    border: none;
+}
+
+.btn-comprar:hover {
+    color: #000000;
+}
+
+.seccion-factura {
+    width: 100%;
+    height: 20px;
+    justify-content: center;
+}
+
+.aviso-btn {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+
+.factura {
+    width: 100px;
+    height: auto;
+    background-color: wheat;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .ocultar {
     display: none;
@@ -294,7 +370,7 @@ a:hover {
 
 .respuesta-formulario {
     width: 250px;
-    border: 1.5px solid #0b3533;
+    border: 2px solid #0b3533;
     border-radius: 5px;
 }
 

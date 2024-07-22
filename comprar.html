@@ -24,30 +24,32 @@
     </header>
 
     <section class="section-general">
-        <div class="contenedor-productos">
-            
-            <div class="cabecera-seccion-comprar">
-                    <select class="categoria-productos">
-                        <option value="Todo">Todo</option>
-                        <option value="Almacén">Almacén</option>
-                        <option value="Bebidas">Bebidas</option>
-                        <option value="Lácteos">Lácteos</option>
-                        <option value="Panadería">Panadería</option>
-                    </select>
-    
-                <div id="carrito">
-                    <input type="button" id="btn-comprar" value="Comprar">
+        <div class="select-categorias" id= "select-categorias">
+            <p class="filtro">Filtros</p>
+            <select class="categoria-productos">
+                <option value="Todo">Todo</option>
+                <option value="Almacén">Almacén</option>
+                <option value="Bebidas">Bebidas</option>
+                <option value="Lácteos">Lácteos</option>
+                <option value="Panadería">Panadería</option>
+            </select>
+        </div>
 
-                </div>
-            </div>
-
+        <div class="seccion-categoria-productos" id="seccion-categoria-productos">
+            <hr class="linea"> <p class="categoria">Almacén</p> <hr class="linea2">
             <div class="seccion-productos" id="almacen"></div>
-            
+            <hr class="linea"> <p class="categoria">Bebidas</p> <hr class="linea2">
             <div class="seccion-productos" id="bebidas"> </div>
-
+            <hr class="linea"> <p class="categoria">Lácteos</p> <hr class="linea2">
             <div class="seccion-productos" id="lacteos"> </div>
-
+            <hr class="linea"> <p class="categoria">Panadería</p> <hr class="linea2"> 
             <div class="seccion-productos" id="panaderia"></div>
+            <input class="btn-comprar" type="button" id="btn-comprar" value="Comprar">
+        </div>
+
+        <div class="seccion-factura ocultar" id="seccion-factura">
+            <p class="aviso-btn">Su compra se ha realizado con éxito</p>
+
         </div>
 
     </section>

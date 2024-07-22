@@ -1,27 +1,25 @@
 "use strict"
 
 // Informacion sobre los productos --------------------------------------------------------------------------
-let secciones = ["almacen", "bebidas", "lacteos", "panaderia"]
-
 let productosAlmacen = ["Fideos", "Arroz", "Huevos", "Carne"]
 let preciosAlmacen = [1000, 2000, 3000, 4000];
 let stockAlmacen = [10, 10, 10, 10];
-let imagenesAlmacen = ["Media/fideos.jpeg", "Media/arroz.png"]
+let imagenesAlmacen = ["Media/fideos.jpeg","Media/arroz.png","Media/huevos.jpg","Media/carne.jpg"]
 
 let productosBebidas = ["Coca Cola", "Sprite", "Fanta", "Agua"]
 let preciosBebidas = [1000, 2000, 3000, 4000];
 let stockBebidas = [10, 10, 10, 10];
-let imagenesBebidas = []
+let imagenesBebidas = ["Media/coca cola.webp","Media/sprite.jpg","Media/fanta.jpg","Media/agua.jpg"]
 
 let productosLacteos = ["Leche", "Queso", "Yogurt", "Manteca"]
 let preciosLacteos = [1000, 2000, 3000, 4000];
 let stockLacteos = [10, 10, 10, 10];
-let imagenesLacteos = []
+let imagenesLacteos = ["Media/leche.jpeg","Media/queso.jpeg","Media/yogurt.jpg","Media/manteca.webp"]
 
 let productosPanaderia = ["Pan", "Harina", "Prepizzas", "Medialunas"]
 let preciosPanaderia = [1000, 2000, 3000, 4000];
 let stockPanaderia = [10, 10, 10, 10];
-let imagenesPanaderia = []
+let imagenesPanaderia = ["Media/pan.webp","Media/harina.jpg","Media/prepizza.webp","Media/medialunas.jpeg"]
 
 let productos = productosAlmacen.concat(productosBebidas, productosLacteos, productosPanaderia);
 
@@ -108,13 +106,15 @@ function accederInputs(producto, precio, stock) {
                 alert("¡La cantidad ingresada (" + input + ") es mayor a nuestro stock (" + stock[i] + ")! por favor ingrese una cantidad menor.")
             } else {
                 console.log(input * precio[i])
-                let almacenPrecios = document.getElementById("carrito")
+                let seccionFactura = document.getElementById("seccion-factura")
                 let precioProducto = document.createElement("p")
+                precioProducto.setAttribute("class", "precio-producto-factura")
                 precioProducto.setAttribute("id", "precio-" + producto[i])
-                precioProducto.setAttribute("class", "ocultar")
                 let precioProductoValor = document.createTextNode(input * precio[i])
+                //RECORDATORIO! para pasar los valores individuales con $ y producto pasar el valor a otra variable
+                // y luego al html
                 precioProducto.appendChild(precioProductoValor)
-                almacenPrecios.appendChild(precioProducto)
+                seccionFactura.appendChild(precioProducto)
             }
         })
 
@@ -134,14 +134,23 @@ function calcularCosteTotal(producto) {
                 let precioText = input.innerText;
                 let precioNum = parseFloat(precioText);
                 sumaPreciosSeccion += precioNum;
+
             }
         }
-        let carrito = document.getElementById("carrito")
-        let precioFinal = document.createElement ("p")
-        let precioFinalTexto = document.createTextNode (sumaPreciosSeccion + "$")
+        console.log(sumaPreciosSeccion)
+        let seccionFactura = document.getElementById("seccion-factura")
+        let precioFinal = document.createElement("p")
+        let precioFinalTexto = document.createTextNode("Total: "+sumaPreciosSeccion+"$")
         precioFinal.appendChild(precioFinalTexto)
-        carrito.appendChild (precioFinal)
-            
+        seccionFactura.appendChild(precioFinal)
+
+        //hacer ver factura 
+        let seccionOcultar = document.getElementById ("select-categorias")
+        seccionOcultar.setAttribute("class", "ocultar")
+        seccionOcultar = document.getElementById ("seccion-categoria-productos")
+        seccionOcultar.setAttribute("class", "ocultar")
+        let seccionMostrar = document.getElementById ("seccion-factura")
+        seccionMostrar.removeAttribute ("class", "ocultar")
     });
 };
 
@@ -149,7 +158,9 @@ function calcularCosteTotal(producto) {
 //Funcionamiento del botón que clasifica los productos ------------------------------------------------------
 let btnSeleccion = document.getElementsByClassName("seccion-productos");
 let clasificacion = document.getElementsByClassName("categoria-productos");
-
+let categoria = document.getElementsByClassName ("categoria");
+let lineas = document.getElementsByClassName ("linea")
+let lineas2 = document.getElementsByClassName ("linea2")
 for (let i = 0; i < clasificacion.length; i++) {
     clasificacion[i].addEventListener("change", function (event) {
         const opcionSeleccionada = event.target.value;
@@ -158,37 +169,67 @@ for (let i = 0; i < clasificacion.length; i++) {
             case "Todo":
                 for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.remove("ocultar")
+                    categoria[i].classList.remove("ocultar")
+                    lineas[i].classList.remove("ocultar")
+                    lineas2[i].classList.remove("ocultar")
+
                 }
                 break;
 
             case "Almacén":
                 for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.add("ocultar")
+                    categoria[i].classList.add("ocultar")
+                    lineas[i].classList.add("ocultar")
+                    lineas2[i].classList.add("ocultar")
+
 
                 }
                 btnSeleccion[0].classList.remove("ocultar");
+                categoria[0].classList.remove("ocultar")
+                lineas[0].classList.remove("ocultar")
+                lineas2[0].classList.remove("ocultar")
 
                 break;
             case "Bebidas":
                 for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.add("ocultar")
+                    categoria[i].classList.add("ocultar")
+                    lineas[i].classList.add("ocultar")
+                    lineas2[i].classList.add("ocultar")
                 }
                 btnSeleccion[1].classList.remove("ocultar");
-
+                categoria[1].classList.remove("ocultar")
+                lineas[1].classList.remove("ocultar")
+                lineas2[1].classList.remove("ocultar")
                 break;
             case "Lácteos":
                 for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.add("ocultar")
+                    categoria[i].classList.add("ocultar")
+                    lineas[i].classList.add("ocultar")
+                    lineas2[i].classList.add("ocultar")
+
 
                 }
                 btnSeleccion[2].classList.remove("ocultar");
+                categoria[2].classList.remove("ocultar")
+                lineas[2].classList.remove("ocultar")
+                lineas2[2].classList.remove("ocultar")
 
                 break;
             case "Panadería":
                 for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.add("ocultar")
+                    categoria[i].classList.add("ocultar")
+                    lineas[i].classList.add("ocultar")
+                    lineas2[i].classList.add("ocultar")
+
                 }
                 btnSeleccion[3].classList.remove("ocultar");
+                categoria[3].classList.remove("ocultar") 
+                lineas[3].classList.remove("ocultar");
+                lineas2[3].classList.remove("ocultar") 
 
                 break;
         }
