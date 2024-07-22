@@ -274,13 +274,6 @@ a:hover {
     color: #000000;
 }
 
-/*
-.seccion-factura {
-    width: 100%;
-    height: 20px;
-    justify-content: center;
-}*/
-
 .aviso-btn {
     font-weight: bold;
     font-size: 18px;
@@ -318,8 +311,6 @@ a:hover {
 
 
 
-<<<<<<< HEAD
-=======
 
 
 
@@ -334,11 +325,8 @@ a:hover {
 
 
 
-.invisible {
-    visibility: hidden;
-}
 
->>>>>>> c15048e94bc537ddcc2ca05ed7aa15b9841eb42e
+
 .ocultar {
     display: none;
 }

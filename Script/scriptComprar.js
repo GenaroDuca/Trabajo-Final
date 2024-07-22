@@ -113,12 +113,11 @@ function accederInputs(producto, precio, stock) {
                 let precioTotal = input * precio[i]
                 let precioProductoValor = document.createTextNode(precioTotal)
                 
-                //RECORDATORIO! para pasar los valores individuales con $ y producto pasar el valor a otra variable
-                // y luego al html
                 precioProducto.appendChild(precioProductoValor)
                 seccionFactura.appendChild(precioProducto)
                 precioProducto.classList.add("ocultar")
 
+                //envia el producto con su precio a la factura
                 let ProductoEnFactura = document.createElement("p")
                 ProductoEnFactura.setAttribute("class", "producto-en-factura")
                 let textoProductoEnFactura = document.createTextNode("" + producto[i] + ": $" + precioTotal)
