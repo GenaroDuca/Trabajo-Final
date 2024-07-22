@@ -302,12 +302,22 @@ a:hover {
     text-align: center;
 }
 
-.factura {
+.seccion-factura {
     width: 100px;
     height: auto;
-    background-color: wheat;
+}
 
-
+.btn-final {
+    background-color: #ffffff;
+    margin: 20px;
+    width: 140px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #0b3533;
+    border-radius: 10px;
+    border: none;
+    
 }
 
 
@@ -326,7 +336,9 @@ a:hover {
 
 
 
-
+.invisible {
+    visibility: hidden;
+}
 
 .ocultar {
     display: none;

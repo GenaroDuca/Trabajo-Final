@@ -100,10 +100,10 @@ function accederInputs(producto, precio, stock) {
         let btnAgregar = document.getElementById("btn-agregar-" + producto[i])
         btnAgregar.addEventListener("click", () => {
             let input = document.getElementById("input-cantidad-" + producto[i]).value
-            if (input < 0) {
+            if (input <= 0) {
                 alert("¡La cantidad ingresada no debe ser menor a 0!")
             } else if (input > stock[i]) {
-                alert("¡La cantidad ingresada (" + input + ") es mayor a nuestro stock (" + stock[i] + ")! por favor ingrese una cantidad menor.")
+                alert("¡La cantidad ingresada (" + input + ") es mayor a nuestro stock (" + stock[i] + ")! Por favor ingrese una cantidad menor.")
             } else {
                 console.log(input * precio[i])
                 let seccionFactura = document.getElementById("seccion-factura")
@@ -140,17 +140,29 @@ function calcularCosteTotal(producto) {
         console.log(sumaPreciosSeccion)
         let seccionFactura = document.getElementById("seccion-factura")
         let precioFinal = document.createElement("p")
-        let precioFinalTexto = document.createTextNode("Total: "+sumaPreciosSeccion+"$")
+        let precioFinalTexto = document.createTextNode("Total: $" + sumaPreciosSeccion)
         precioFinal.appendChild(precioFinalTexto)
         seccionFactura.appendChild(precioFinal)
 
         //hacer ver factura 
         let seccionOcultar = document.getElementById ("select-categorias")
-        seccionOcultar.setAttribute("class", "ocultar")
+        seccionOcultar.classList.add("ocultar")
         seccionOcultar = document.getElementById ("seccion-categoria-productos")
-        seccionOcultar.setAttribute("class", "ocultar")
+        seccionOcultar.classList.add("ocultar")
         let seccionMostrar = document.getElementById ("seccion-factura")
-        seccionMostrar.removeAttribute ("class", "ocultar")
+        seccionMostrar.classList.remove("ocultar")
+
+        //hacer ver btn de agradecimiento
+        let seccionAgradecimiento = document.getElementById("seccion-agradecimiento")
+        let btnFinal = document.createElement("input")
+        btnFinal.setAttribute("type", "button")
+        btnFinal.setAttribute("value", "Comprar")
+        btnFinal.setAttribute("class", "btn-final")
+        seccionMostrar.appendChild(btnFinal)
+        btnFinal.addEventListener("click", () => {
+            seccionMostrar.classList.add("ocultar")
+            seccionAgradecimiento.classList.remove("ocultar")
+        })
     });
 };
 
@@ -172,7 +184,6 @@ for (let i = 0; i < clasificacion.length; i++) {
                     categoria[i].classList.remove("ocultar")
                     lineas[i].classList.remove("ocultar")
                     lineas2[i].classList.remove("ocultar")
-
                 }
                 break;
 
@@ -182,15 +193,13 @@ for (let i = 0; i < clasificacion.length; i++) {
                     categoria[i].classList.add("ocultar")
                     lineas[i].classList.add("ocultar")
                     lineas2[i].classList.add("ocultar")
-
-
                 }
                 btnSeleccion[0].classList.remove("ocultar");
                 categoria[0].classList.remove("ocultar")
                 lineas[0].classList.remove("ocultar")
                 lineas2[0].classList.remove("ocultar")
-
                 break;
+                
             case "Bebidas":
                 for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.add("ocultar")
@@ -203,34 +212,31 @@ for (let i = 0; i < clasificacion.length; i++) {
                 lineas[1].classList.remove("ocultar")
                 lineas2[1].classList.remove("ocultar")
                 break;
+
             case "Lácteos":
                 for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.add("ocultar")
                     categoria[i].classList.add("ocultar")
                     lineas[i].classList.add("ocultar")
                     lineas2[i].classList.add("ocultar")
-
-
                 }
                 btnSeleccion[2].classList.remove("ocultar");
                 categoria[2].classList.remove("ocultar")
                 lineas[2].classList.remove("ocultar")
                 lineas2[2].classList.remove("ocultar")
-
                 break;
+
             case "Panadería":
                 for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.add("ocultar")
                     categoria[i].classList.add("ocultar")
                     lineas[i].classList.add("ocultar")
                     lineas2[i].classList.add("ocultar")
-
                 }
                 btnSeleccion[3].classList.remove("ocultar");
                 categoria[3].classList.remove("ocultar") 
                 lineas[3].classList.remove("ocultar");
                 lineas2[3].classList.remove("ocultar") 
-
                 break;
         }
     })
