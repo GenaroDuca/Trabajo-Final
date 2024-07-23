@@ -25,12 +25,33 @@ header {
 footer {
     width: 1200px;
     height: 100px;
-    background-color: #FFC7C7;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top: 2px solid #0b3533;
+    justify-content: space-between;
+}
+
+.seccion-redes {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 60px;
+    border-left: 2px solid #0b3533;
+    margin: 10px;
+}
+
+.redes {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.nombre-footer {
+    font-weight: bold;
 }
 
 .seccion-titulo {
@@ -51,18 +72,18 @@ footer {
 
 .link {
     border-radius: 10px;
-    background-color: #eaeeee;
+    background-color: #ffe9e9;
     color: rgb(0, 0, 0);
     font-weight: bold;
     font-size: 18px;
     text-decoration: none;
     padding: 10px;
-    border: 1px solid #0b3533;
     margin: 10px;
 }
 
-a:hover {
-    color:#FF5F40 ;
+
+.link:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.24);
 }
 
 .ofertas {
@@ -155,27 +176,23 @@ a:hover {
     justify-content: space-evenly;
 }
 
-.linea {
-    width: 5px;
-    background-color: #0b3533;
-    border: none;
-    border-radius: 5px;
-}
-
-.linea2 {
-    width: 5px;
-    background-color: #0b3533;
-    border: none;
-    border-radius: 5px;
-}
-
 .select-categorias {
-    width: auto;
+    width: 200px;
+    height: auto;
+    background-color: #ffffff;
+}
+
+.filtro  {
+    width: 200px;
     height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #0b3533;
+    text-align: center;
 }
 
 .categoria-productos {
-    width: 200px;
+    width: 180px;
     height: 30px;
     border-radius: 10px;
     text-align: center;
@@ -183,8 +200,15 @@ a:hover {
     font-weight: bold;
     color: #0b3533;
     border-color: #0b3533;
-    margin: 10px;
+    margin-left: 10px;
+
+    cursor: pointer;
 }
+
+.categoria-productos:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.24);
+}
+
 
 .seccion-categoria-productos{
     display: flex;
@@ -201,30 +225,31 @@ a:hover {
     justify-content: center;
 }
 
-
-.filtro  {
-    border-radius: 5px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #0b3533;
-    text-align: center;
-}
-
 .categoria {
-    border-radius: 5px;
+    width: 900px;
+    height: 40px;
     font-size: 20px;
     font-weight: bold;
     color: #0b3533;
-    text-align: center;
+    border-bottom: 2px solid #000000;
+
 }
 
 .contenedor-seccion {
     width: 200px;
-    height: 300px;
+    height: auto;
     background-color: #ffffff;
     border-radius: 20px;
-    text-align: center;
     margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-seccion:hover{
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.24);
+
 }
 
 
@@ -235,10 +260,12 @@ a:hover {
 
 .descripcion-producto {
     color: #2b2a2a;
-    font-size: 22px;
+    width: 180px;
+    font-size: 20px;
     font-weight: bold;
-    margin-top: -5px;
     text-align: center;
+    border-top: 2px solid #0b3533 ;
+    border-bottom: 2px solid #0b3533 ;
 }
 
 .precio-producto {
@@ -250,13 +277,25 @@ a:hover {
 .input-cantidad {
     width: 100px;
     height: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
+    text-align: center;
+    border:1px solid #0b3533;
+    margin-left: 8px;
 }
 
 .btn-agregar {
-    width: 100px;
-    height: 20px;
+    width: 150px;
+    height: 30px;
+    border-radius: 8px;
+    margin: 20px;
+    font-weight: bold;
+    color: #000000;
+    background-color: #f09c8b;
+    border: none;
+    cursor:pointer;
 }
+
+
 
 .btn-comprar {
     background-color: #ffffff;
@@ -268,10 +307,11 @@ a:hover {
     color: #0b3533;
     border-radius: 10px;
     border: none;
+    cursor:pointer;
 }
 
 .btn-comprar:hover {
-    color: #000000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.24);
 }
 
 .aviso-btn {
@@ -334,10 +374,11 @@ a:hover {
 
 
 .section-contacto {
+    width: 1200px;
+    height: 520px;
     display: flex;
     justify-content: center;
     background-color: #6ebfb644;
-    width: 1200px;
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
@@ -384,15 +425,21 @@ a:hover {
 }
 
 .btn-enviar {
-    width: 100px;
-    height: 40px;
+    background-color: #f09c8b;
+    margin-top: 20px;
+
+    width: 120px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #0b3533;
     border-radius: 10px;
     border: none;
-    background-color: #fcfcfc;
-    font-weight: bold;
-    margin-bottom:20px;;
+    cursor:pointer;
 }
 
 .btn-enviar:hover {
-    color: #0b3533;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.24);
 }
+
+

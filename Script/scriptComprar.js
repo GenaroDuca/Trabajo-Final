@@ -100,7 +100,7 @@ function accederInputs(producto, precio, stock) {
         let btnAgregar = document.getElementById("btn-agregar-" + producto[i])
         btnAgregar.addEventListener("click", () => {
             let input = document.getElementById("input-cantidad-" + producto[i]).value
-            if (input <= 0) {
+            if (input < 0) {
                 alert("¡La cantidad ingresada no debe ser menor a 0!")
             } else if (input > stock[i]) {
                 alert("¡La cantidad ingresada (" + input + ") es mayor a nuestro stock (" + stock[i] + ")! Por favor ingrese una cantidad menor.")
@@ -112,7 +112,9 @@ function accederInputs(producto, precio, stock) {
                 precioProducto.setAttribute("id", "precio-" + producto[i])
                 let precioTotal = input * precio[i]
                 let precioProductoValor = document.createTextNode(precioTotal)
-                
+
+                //Cambiar value de agregar a agregado 
+
                 precioProducto.appendChild(precioProductoValor)
                 seccionFactura.appendChild(precioProducto)
                 precioProducto.classList.add("ocultar")
@@ -123,6 +125,9 @@ function accederInputs(producto, precio, stock) {
                 let textoProductoEnFactura = document.createTextNode("" + producto[i] + ": $" + precioTotal)
                 ProductoEnFactura.appendChild(textoProductoEnFactura)
                 seccionFactura.appendChild(ProductoEnFactura)
+
+                btnAgregar.value ="Agregado ✔"
+                btnAgregar.setAttribute("disabled", "true")
             }
         })
 
@@ -142,7 +147,6 @@ function calcularCosteTotal(producto) {
                 let precioText = input.innerText;
                 let precioNum = parseFloat(precioText);
                 sumaPreciosSeccion += precioNum;
-
             }
         }
         console.log(sumaPreciosSeccion)
@@ -180,8 +184,6 @@ function calcularCosteTotal(producto) {
 let btnSeleccion = document.getElementsByClassName("seccion-productos");
 let clasificacion = document.getElementsByClassName("categoria-productos");
 let categoria = document.getElementsByClassName ("categoria");
-let lineas = document.getElementsByClassName ("linea")
-let lineas2 = document.getElementsByClassName ("linea2")
 for (let i = 0; i < clasificacion.length; i++) {
     clasificacion[i].addEventListener("change", function (event) {
         const opcionSeleccionada = event.target.value;
@@ -191,8 +193,6 @@ for (let i = 0; i < clasificacion.length; i++) {
                 for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.remove("ocultar")
                     categoria[i].classList.remove("ocultar")
-                    lineas[i].classList.remove("ocultar")
-                    lineas2[i].classList.remove("ocultar")
                 }
                 break;
 
@@ -200,52 +200,36 @@ for (let i = 0; i < clasificacion.length; i++) {
                 for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.add("ocultar")
                     categoria[i].classList.add("ocultar")
-                    lineas[i].classList.add("ocultar")
-                    lineas2[i].classList.add("ocultar")
                 }
                 btnSeleccion[0].classList.remove("ocultar");
                 categoria[0].classList.remove("ocultar")
-                lineas[0].classList.remove("ocultar")
-                lineas2[0].classList.remove("ocultar")
                 break;
                 
             case "Bebidas":
                 for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.add("ocultar")
                     categoria[i].classList.add("ocultar")
-                    lineas[i].classList.add("ocultar")
-                    lineas2[i].classList.add("ocultar")
                 }
                 btnSeleccion[1].classList.remove("ocultar");
                 categoria[1].classList.remove("ocultar")
-                lineas[1].classList.remove("ocultar")
-                lineas2[1].classList.remove("ocultar")
                 break;
 
             case "Lácteos":
                 for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.add("ocultar")
                     categoria[i].classList.add("ocultar")
-                    lineas[i].classList.add("ocultar")
-                    lineas2[i].classList.add("ocultar")
                 }
                 btnSeleccion[2].classList.remove("ocultar");
                 categoria[2].classList.remove("ocultar")
-                lineas[2].classList.remove("ocultar")
-                lineas2[2].classList.remove("ocultar")
                 break;
 
             case "Panadería":
                 for (i = 0; i < btnSeleccion.length; i++) {
                     btnSeleccion[i].classList.add("ocultar")
                     categoria[i].classList.add("ocultar")
-                    lineas[i].classList.add("ocultar")
-                    lineas2[i].classList.add("ocultar")
                 }
                 btnSeleccion[3].classList.remove("ocultar");
                 categoria[3].classList.remove("ocultar") 
-                lineas[3].classList.remove("ocultar");
-                lineas2[3].classList.remove("ocultar") 
                 break;
         }
     })
