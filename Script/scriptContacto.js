@@ -1,22 +1,10 @@
-<<<<<<< HEAD
-let formulario = document.getElementById("btn-enviar-formulario").addEventListener("click", function (e) {
-    let datos = document.getElementsByClassName("respuesta-formulario")
-    let datosString = "";
-    for (i = 0; i < datos.length; i++) {
-        datosString += " " + datos[i].value;
-    }
-    localStorage.setItem('respuestaFormulario', datosString);
-    const datosFormulario = localStorage.getItem('respuestaFormulario');
-    const sinEspacio = datosFormulario.trim();
-    const dataRecuperada = sinEspacio.split(" ");
-=======
 let nombre = document.getElementById("nombre")
 let apellido = document.getElementById("apellido")
 let email = document.getElementById("email")
 let telefono = document.getElementById("telefono")
 let consulta = document.getElementById("consulta")
 let datos = []
-let btnEnviar = document.getElementById("enviar-formulario")
+let btnEnviar = document.getElementById("btn-enviar-formulario")
 
 btnEnviar.addEventListener("click", (e) => {
     e.preventDefault(); //previene la acción del form de actualizar la página
@@ -30,8 +18,6 @@ btnEnviar.addEventListener("click", (e) => {
     let blob = new Blob([datos], { type: "text/plain;charset-utf-8" });
 
     saveAs(blob, "respuesta-formulario.txt")
->>>>>>> c15048e94bc537ddcc2ca05ed7aa15b9841eb42e
-
     cerrarFormulario();
 })
 
