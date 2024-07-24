@@ -2,23 +2,23 @@
 
 // Informacion sobre los productos --------------------------------------------------------------------------
 let productosAlmacen = ["Fideos", "Arroz", "Huevos", "Carne"]
-let preciosAlmacen = [1000, 2000, 3000, 4000];
-let stockAlmacen = [10, 10, 10, 10];
+let preciosAlmacen = [2000, 1800, 500, 10000];
+let stockAlmacen = [20, 10, 12, 5];
 let imagenesAlmacen = ["Media/fideos.jpeg", "Media/arroz.png", "Media/huevos.jpg", "Media/carne.jpg"]
 
 let productosBebidas = ["Coca Cola", "Sprite", "Fanta", "Agua"]
-let preciosBebidas = [1000, 2000, 3000, 4000];
-let stockBebidas = [10, 10, 10, 10];
+let preciosBebidas = [3000, 1500, 1100, 1250];
+let stockBebidas = [50, 15, 2, 9];
 let imagenesBebidas = ["Media/coca cola.webp", "Media/sprite.jpg", "Media/fanta.jpg", "Media/agua.jpg"]
 
 let productosLacteos = ["Leche", "Queso", "Yogurt", "Manteca"]
-let preciosLacteos = [1000, 2000, 3000, 4000];
-let stockLacteos = [10, 10, 10, 10];
+let preciosLacteos = [2000, 8000, 5000, 4500];
+let stockLacteos = [15, 8, 20, 10];
 let imagenesLacteos = ["Media/leche.jpeg", "Media/queso.jpeg", "Media/yogurt.jpg", "Media/manteca.webp"]
 
 let productosPanaderia = ["Pan", "Harina", "Prepizzas", "Medialunas"]
-let preciosPanaderia = [1000, 2000, 3000, 4000];
-let stockPanaderia = [10, 10, 10, 10];
+let preciosPanaderia = [1000, 800, 3000, 6000];
+let stockPanaderia = [10, 22, 5, 10];
 let imagenesPanaderia = ["Media/pan.webp", "Media/harina.jpg", "Media/prepizza.webp", "Media/medialunas.jpeg"]
 
 let productos = productosAlmacen.concat(productosBebidas, productosLacteos, productosPanaderia);
@@ -100,8 +100,8 @@ function accederInputs(producto, precio, stock) {
         let btnAgregar = document.getElementById("btn-agregar-" + producto[i])
         btnAgregar.addEventListener("click", () => {
             let input = document.getElementById("input-cantidad-" + producto[i]).value
-            if (input < 0) {
-                alert("¡La cantidad ingresada no debe ser menor a 0!")
+            if (input <= 0) {
+                alert("¡La cantidad ingresada no debe ser menor o igual a 0!")
             } else if (input > stock[i]) {
                 alert("¡La cantidad ingresada (" + input + ") es mayor a nuestro stock (" + stock[i] + ")! Por favor ingrese una cantidad menor.")
             } else {
@@ -148,26 +148,32 @@ function calcularCosteTotal(producto) {
             }
         }
         console.log(sumaPreciosSeccion)
-        let productosFactura = document.getElementById("productos-factura")
-        let precioFinal = document.createElement("p")
-        precioFinal.setAttribute("class", "total-precio")
-        let precioFinalTexto = document.createTextNode("Total: $" + sumaPreciosSeccion)
-        precioFinal.appendChild(precioFinalTexto)
-        productosFactura.appendChild(precioFinal)
+        
+        if (sumaPreciosSeccion > 0) {
+            let productosFactura = document.getElementById("productos-factura")
+            let precioFinal = document.createElement("p")
+            precioFinal.setAttribute("class", "total-precio")
+            let precioFinalTexto = document.createTextNode("Total: $" + sumaPreciosSeccion)
+            precioFinal.appendChild(precioFinalTexto)
+            productosFactura.appendChild(precioFinal)
 
-        //hacer ver factura 
-        let seccionDeComprar = document.getElementById("seccion-de-compra")
-        seccionDeComprar.classList.add("ocultar")
-        let seccionFactura = document.getElementById("seccion-de-factura")
-        seccionFactura.classList.remove("ocultar")
 
-        //hacer ver agradecimiento
-        let btnComprar = document.getElementById("btn-comprar")
-        btnComprar.addEventListener("click",()=> {
-            factura.classList.add ("ocultar")
-            let seccionAgradecimiento = document.getElementById ("seccion-agradecimiento")
-            seccionAgradecimiento.classList.remove ("ocultar")
-        })  
+            //hacer ver factura 
+            let seccionDeComprar = document.getElementById("seccion-de-compra")
+            seccionDeComprar.classList.add("ocultar")
+            let seccionFactura = document.getElementById("seccion-de-factura")
+            seccionFactura.classList.remove("ocultar")
+
+            //hacer ver agradecimiento
+            let btnComprar = document.getElementById("btn-comprar")
+            btnComprar.addEventListener("click",()=> {
+                seccionFactura.classList.add ("ocultar")
+                let seccionAgradecimiento = document.getElementById ("seccion-agradecimiento")
+                seccionAgradecimiento.classList.remove ("ocultar")
+            })  
+        } else {
+            alert("Su compra debe ser mayor de 0$")
+        }
     });
 };
 
@@ -226,6 +232,35 @@ for (let i = 0; i < clasificacion.length; i++) {
         }
     })
 }
+
+
+//Botón del método de pago de la factura
+let metodoPago = document.getElementById("seccion-metodo-pago")
+let selectMetodoPago = document.getElementsByClassName("select-metodo-de-pago")
+
+for (let i = 0; i < selectMetodoPago.length; i++) {
+    selectMetodoPago[i].addEventListener("change", function (event) {
+        const opcionSeleccionada2 = event.target.value;
+
+        switch (opcionSeleccionada2) {
+            case "Efectivo":
+                metodoPago.classList.add("ocultar");
+                break;
+
+            case "Transferencia":
+                metodoPago.classList.add("ocultar");
+                break;
+
+            case "Credito":
+                metodoPago.classList.remove("ocultar");
+                break;
+
+            case "Debito":
+                metodoPago.classList.remove("ocultar");
+                break;
+        }
+    }
+)}
 
 
 
