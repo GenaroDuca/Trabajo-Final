@@ -166,12 +166,17 @@ footer {
 
 .section-general {
     width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.seccion-de-compra {
+    width: 1200px;
     height: auto;
     margin-top: 20px;
     border-radius: 20px;
     background-color: #6ebfb644;
-    margin-left: auto;
-    margin-right: auto;
     display: flex;
     justify-content: space-evenly;
 }
@@ -201,7 +206,6 @@ footer {
     color: #0b3533;
     border-color: #0b3533;
     margin-left: 10px;
-
     cursor: pointer;
 }
 
@@ -295,9 +299,7 @@ footer {
     cursor:pointer;
 }
 
-
-
-.btn-comprar {
+.btn-ir-comprar {
     background-color: #ffffff;
     margin: 20px;
     width: 220px;
@@ -314,43 +316,83 @@ footer {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.24);
 }
 
+.seccion-de-factura {
+    width: 1200px;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    background-color: #6ebfb644;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+}
+
+
 .aviso-btn {
     font-weight: bold;
     font-size: 18px;
     text-align: center;
 }
 
-.seccion-factura {
-    width: 300px;
+.factura {
+    width: 400px;
     height: auto;
-    text-align: center;
-    font-size: 16px;
+    background-color: white;
     color: #0b3533;
+    border-radius: 20px;
+    margin: 20px;
+    text-align: center;
 }
 
-#total-precio {
+.titulo-factura {
+    margin-right: 20px;
+    margin-left: 20px;
+    border-bottom: 2px solid #0b3533;
+}
+
+.producto-en-factura {
+    text-align: justify;
+    margin-left: 20px;  
+}
+
+.total-precio {
+    margin-right: 20px;
+    margin-left: 20px;
     text-align: end;
     font-weight: bold;
-    margin-top: 20px;
+    border-top: 2px solid #0b3533;
 }
 
-.btn-final {
-    background-color: #ffffff;
-    margin: 20px;
-    width: 140px;
+.btn-comprar {
+    background-color: #f09c8b;
+    width: 120px;
     height: 50px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
-    color: #0b3533;
+    color: #000000;
     border-radius: 10px;
     border: none;
-    justify-self: center;
-    margin-left: 30px;
-    
+    cursor:pointer;
+    margin-bottom: 20px;
 }
 
+.btn-final:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.24);
+}
 
-
+.select-metodo-de-pago {
+    width: 180px;
+    height: 30px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #0b3533;
+    border-color: #0b3533;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
 
 
 
@@ -427,12 +469,11 @@ footer {
 .btn-enviar {
     background-color: #f09c8b;
     margin-top: 20px;
-
     width: 120px;
     height: 50px;
     font-size: 18px;
     font-weight: bold;
-    color: #0b3533;
+    color: #000000;
     border-radius: 10px;
     border: none;
     cursor:pointer;
