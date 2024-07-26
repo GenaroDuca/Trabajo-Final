@@ -34,3 +34,4 @@ function cerrarFormulario() {
     let btnConForm = document.querySelector(".form-y-boton"); 
     btnConForm.classList.toggle("ocultar");
 }
+

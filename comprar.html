@@ -10,10 +10,10 @@
 </head>
 
 <body>
-    <div class="seccion-titulo">
-        <p>Supermercado Luna</p>
-    </div>
     <header>
+        <div class="seccion-titulo">
+            <p>Supermercado Luna ®</p>
+        </div>
         <img src="Media/Logo.jpg" alt="Logo" class="logo" title="Logo">
         <div>
             <a href="index.html" class="link"> Inicio</a>
@@ -65,17 +65,17 @@
                         <option value="Debito">Tarjeta de débito</option>
                     </select>
                 </div>
+                <div class="seccion-metodo-pago ocultar" id="seccion-metodo-pago">
+                    <form class="pago-credito-debito">
+                        <input placeholder="Número de tarjeta"  class="input-1" type="text">
+                        <input placeholder="Nompre y apellido (como figura en la tarjeta)" class="input-1" type="text">
+                        <p class="texto-input">Fecha de vencimiento</p>
+                        <input placeholder="Fecha de vencimiento" class="input-2" type="month">
+                        <input placeholder="Código de seguridad" class="input-2" type="text">
+                        <input placeholder="DNI del titular de la tarjeta" class="input-1" type="text">
+                    </form>
+                </div>
                 <input type="button" class="btn-comprar" id="btn-comprar" value="Comprar">
-            </div>
-            <div class="seccion-metodo-pago ocultar" id="seccion-metodo-pago">
-                <form class="pago-credito-debito">
-                    <input placeholder="Número de tarjeta"  class="input-1" type="text">
-                    <input placeholder="Nompre y apellido (como figura en la tarjeta)" class="input-1" type="text">
-                    <p class="texto-input">Fecha de vencimiento</p>
-                    <input placeholder="Fecha de vencimiento" class="input-2" type="month">
-                    <input placeholder="Código de seguridad (CVV)" class="input-2" type="text">
-                    <input placeholder="DNI del titular de la tarjeta" class="input-1" type="text">
-                </form>
             </div>
         </div>
       

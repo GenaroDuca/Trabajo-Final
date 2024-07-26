@@ -25,22 +25,22 @@ let productos = productosAlmacen.concat(productosBebidas, productosLacteos, prod
 
 
 //Llamado de funciones --------------------------------------------------------------------------------------
-llenarInformacionProductos(productosAlmacen, preciosAlmacen, imagenesAlmacen, "almacen")
+llenarInformacionProductos(productosAlmacen, preciosAlmacen, imagenesAlmacen, stockAlmacen, "almacen")
 accederInputs(productosAlmacen, preciosAlmacen, stockAlmacen)
 
-llenarInformacionProductos(productosBebidas, preciosBebidas, imagenesBebidas, "bebidas")
+llenarInformacionProductos(productosBebidas, preciosBebidas, imagenesBebidas, stockBebidas, "bebidas")
 accederInputs(productosBebidas, preciosBebidas, stockBebidas)
 
-llenarInformacionProductos(productosLacteos, preciosLacteos, imagenesLacteos, "lacteos")
+llenarInformacionProductos(productosLacteos, preciosLacteos, imagenesLacteos, stockLacteos, "lacteos")
 accederInputs(productosLacteos, preciosLacteos, stockLacteos)
 
-llenarInformacionProductos(productosPanaderia, preciosPanaderia, imagenesPanaderia, "panaderia")
+llenarInformacionProductos(productosPanaderia, preciosPanaderia, imagenesPanaderia, stockPanaderia, "panaderia")
 accederInputs(productosPanaderia, preciosPanaderia, stockPanaderia)
 
 calcularCosteTotal(productos)
 
 // Autorrellenado de informacion ----------------------------------------------------------------------------
-function llenarInformacionProductos(producto, precio, imagen, seccion) {
+function llenarInformacionProductos(producto, precio, imagen, stock ,seccion) {
     for (let i = 0; i < producto.length; i++) {
         let seccionComprar = document.getElementById(seccion)
         //crea contenedor
@@ -79,6 +79,21 @@ function llenarInformacionProductos(producto, precio, imagen, seccion) {
         inputCantidad.setAttribute("id", "input-cantidad-" + producto[i])
         contenedorSeccion.appendChild(inputCantidad)
 
+        //crear stock
+        let textoStock=document.createElement("p")
+        textoStock.setAttribute("class", "stock-producto")
+        let textoCantidadStock = document.createTextNode("Stock: ")
+        textoStock.appendChild(textoCantidadStock)
+        contenedorSeccion.appendChild(textoStock)
+
+        //crear cantidad stock
+        let numeroStock = document.createElement("p")
+        numeroStock.setAttribute ("class", "stock-producto-cantidad")
+        numeroStock.setAttribute("id", "stock-producto"+producto[i])
+        let numeroStockTexto = document.createTextNode (stock[i])
+        numeroStock.appendChild (numeroStockTexto)
+        contenedorSeccion.appendChild(numeroStock)
+
         //crea input de agregar
         let inputAgregar = document.createElement("input")
         inputAgregar.setAttribute("type", "button")
@@ -106,6 +121,16 @@ function accederInputs(producto, precio, stock) {
                 alert("¡La cantidad ingresada (" + input + ") es mayor a nuestro stock (" + stock[i] + ")! Por favor ingrese una cantidad menor.")
             } else {
                 console.log(input * precio[i])
+
+                //actualizar stock
+                let cantidadStock = document.getElementById("stock-producto" +producto[i])
+                let cantidadStockString= cantidadStock.innerText
+                let cantidadStockNumber = parseInt(cantidadStockString)
+                let stockActualizado = cantidadStockNumber-input
+                stock[i]=stockActualizado
+                console.log(stock)
+
+                
                 let seccionFactura = document.getElementById("productos-factura")
                 let precioProducto = document.createElement("p")
                 precioProducto.setAttribute("class", "precio-producto-factura")
@@ -124,6 +149,7 @@ function accederInputs(producto, precio, stock) {
                 ProductoEnFactura.appendChild(textoProductoEnFactura)
                 seccionFactura.appendChild(ProductoEnFactura)
 
+                //feedback botón cagregar
                 btnAgregar.value = "Agregado ✔"
                 btnAgregar.setAttribute("disabled", "true")
             }
@@ -143,7 +169,7 @@ function calcularCosteTotal(producto) {
             let input = document.getElementById("precio-" + producto[i]);
             if (input) {
                 let precioText = input.innerText;
-                let precioNum = parseFloat(precioText);
+                let precioNum = parseInt(precioText);
                 sumaPreciosSeccion += precioNum;
             }
         }
