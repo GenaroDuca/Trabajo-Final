@@ -372,13 +372,9 @@ footer {
     border-radius: 20px;
 }
 
-
-.aviso {
+.agradecimiento {
     font-weight: bold;
-    font-size: 18px;
-    text-align: center;
 }
-
 
 .factura {
     width: 400px;

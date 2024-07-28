@@ -1,21 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Supermercado Luna </title>
+    <link rel="stylesheet" href="prueba.css">
+
 </head>
+
 <body>
-    <div class="seccion-formulario">
-        <form class="formulario-credito-debito">
-            <input placeholder="Número de tarjeta"  class="input-1" type="text">
-            <input placeholder="Nompre y apellido (como figura en la tarjeta)" class="input-1" type="text">
-            <p class="texto-input">Fecha de vencimiento</p>
-            <input placeholder="Fecha de vencimiento" class="input-2" type="month">
-            <input placeholder="Código de seguridad (CVV)" class="input-2" type="text">
-            <input placeholder="DNI del titular de la tarjeta" class="input-1" type="text">
-        </form>
-    </div>
+    <header>
+        <div class="seccion-titulo">
+            <p>Supermercado Luna ®</p>
+        </div>
+        <img src="Media/Logo.jpg" alt="Logo" class="logo" title="Logo">
+        <div>
+            <a href="index.html" class="link"> Inicio</a>
+            <a href="comprar.html" class="link"> Comprar</a>
+            <a href="contacto.html" class="link"> Contacto</a>
+        </div>
+    </header>
+
+    <section class="section-general">
+        <div class="seccion-de-compra" id="seccion-de-compra">
+            <div class="select-categorias" id="select-categorias">
+                <p class="filtro">Filtro</p>
+                <select class="categoria-productos">
+                    <option value="Todo">Todo</option>
+                    <option value="Almacén">Almacén</option>
+                    <option value="Bebidas">Bebidas</option>
+                    <option value="Lácteos">Lácteos</option>
+                    <option value="Panadería">Panadería</option>
+                </select>
+            </div>
+
+            <div class="seccion-categoria-productos" id="seccion-categoria-productos">
+                <p class="categoria">Almacén</p>
+                <div class="seccion-productos" id="almacen"></div>
+
+                <p class="categoria">Bebidas</p>
+                <div class="seccion-productos" id="bebidas"> </div>
+
+                <p class="categoria">Lácteos</p>
+                <div class="seccion-productos" id="lacteos"> </div>
+
+                <p class="categoria">Panadería</p>
+                <div class="seccion-productos" id="panaderia"></div>
+
+                <input  type="button" class="btn-ir-comprar" id="btn-ir-comprar" value="Ir a comprar">
+            </div>
+        </div>
+
+        <div class="seccion-de-factura ocultar" id="seccion-de-factura">
+            <div class="factura" id="factura">
+                <div id="productos-factura">
+                    <h1 class="titulo-factura">Factura</h1>
+                </div>
+                <div>
+                    <select class="select-metodo-de-pago">
+                        <option value="Efectivo">Efectivo</option>
+                        <option value="Transferencia">Transferencia</option>
+                        <option value="Credito">Tarjeta de crédito</option>
+                        <option value="Debito">Tarjeta de débito</option>
+                    </select>
+                </div>
+                <div class="seccion-metodo-pago ocultar" id="seccion-metodo-pago">
+                    <form class="pago-credito-debito">
+                        <input placeholder="Número de tarjeta"  class="input-1" type="text">
+                        <input placeholder="Nompre y apellido (como figura en la tarjeta)" class="input-1" type="text">
+                        <p class="texto-input">Fecha de vencimiento</p>
+                        <input placeholder="Fecha de vencimiento" class="input-2" type="month">
+                        <input placeholder="Código de seguridad" class="input-2" type="text">
+                        <input placeholder="DNI del titular de la tarjeta" class="input-1" type="text">
+                    </form>
+                </div>
+                <input type="button" class="btn-comprar" id="btn-comprar" value="Comprar">
+            </div> 
+            <p class="agradecimiento ocultar" id="agradecimiento">Su compra se ha realizado con éxito ✔</p>
+        </div>
+      
+
+    </section>
+
+    <footer>
+        <img class="logo" src="Media/Logo.jpg" alt="Logo" title="Logo">
+        <p class="horario">Horario de atención lunes a viernes de 8 a 20hs.</p>
+        <p class="nombre-footer">Supermercado Luna ®</p>
+
+        <div class="seccion-datos-contacto">
+            <p class="email">supermercadolunaoficial@gmail.com</p>
+            <p class="telefono">2284 947315</p>
+            <p class="direccion">Av. Colón 2716, B7400 Olavarría, Provincia de Buenos Aires</p>
+        </div>
+        <div class="seccion-redes">
+        </div>
+
+    </footer>
+
+    <script src="prueba.js"> </script>
 </body>
+
 </html>
