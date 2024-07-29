@@ -40,6 +40,7 @@ function llenarInformacionProductos(producto, precio, imagen, stock, seccion) {
         let seccionComprar = document.getElementById(seccion)
         // Crea contenedor
         let contenedorSeccion = document.createElement("div")
+        contenedorSeccion.setAttribute("class", "contenedor-producto")
 
         // Crea imagen
         let imagenProducto = document.createElement("img")
@@ -73,6 +74,7 @@ function llenarInformacionProductos(producto, precio, imagen, stock, seccion) {
         inputCantidad.setAttribute("class", "input-cantidad")
         contenedorSeccion.appendChild(inputCantidad)
 
+        /*
         // Crear stock
         let textoStock = document.createElement("p")
         textoStock.setAttribute("class", "stock-producto")
@@ -83,11 +85,11 @@ function llenarInformacionProductos(producto, precio, imagen, stock, seccion) {
         // Crear cantidad stock
         let numeroStock = document.createElement("p")
         numeroStock.setAttribute("class", "stock-producto-cantidad")
-        numeroStock.setAttribute("id", "stock-producto" + producto[i])
         let numeroStockTexto = document.createTextNode(stock[i])
         numeroStock.appendChild(numeroStockTexto)
         contenedorSeccion.appendChild(numeroStock)
-
+        */
+       
         // Crea input de agregar
         let inputAgregar = document.createElement("input")
         inputAgregar.setAttribute("type", "button")
@@ -123,6 +125,8 @@ for (let i = 0; i < productos.length; i++) {
             btnAgregar.value = "Agregado ✔"
             btnAgregar.setAttribute("disabled", "true")
 
+            // Actualizacion de stock (HACER)
+            
             // Agregar productos en factura
             let seccionFactura = document.getElementById("productos-factura")
             let productoEnFactura = document.createElement("p")
@@ -134,7 +138,7 @@ for (let i = 0; i < productos.length; i++) {
     })
 }
 
-// Funcionamiento botón ir a comprar y Mostrar precio total --------------------------------------------------
+// Funcionamiento botón ir a comprar y mostrar precio total --------------------------------------------------
 let btnIrComprar = document.getElementById("btn-ir-comprar")
 btnIrComprar.addEventListener("click", () => {
     if (sumaPrecios > 0) {
