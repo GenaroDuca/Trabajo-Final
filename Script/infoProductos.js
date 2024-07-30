@@ -1,8 +1,10 @@
 "use strict"
 
 // Informacion sobre los productos --------------------------------------------------------------------------
+// let secciones = ["almacen", "bebidas", "lacteos", "panaderia"]
+
 let productosAlmacen = ["Fideos", "Arroz", "Huevos", "Carne"]
-let preciosAlmacen = [2000, 1800, 500, 1000];
+let preciosAlmacen = [2000, 1800, 500, 10000];
 let stockAlmacen = [20, 10, 12, 5];
 let imagenesAlmacen = ["Media/fideos.jpeg", "Media/arroz.png", "Media/huevos.jpg", "Media/carne.jpg"]
 
@@ -21,3 +23,5 @@ let preciosPanaderia = [1000, 800, 3000, 6000];
 let stockPanaderia = [10, 22, 5, 10];
 let imagenesPanaderia = ["Media/pan.webp", "Media/harina.jpg", "Media/prepizza.webp", "Media/medialunas.jpeg"]
 
+// Ofertas --------------------------------------------------------------------------------------------------
+let productosEnOfertas =["Arroz", "Coca Cola", "Manteca"]

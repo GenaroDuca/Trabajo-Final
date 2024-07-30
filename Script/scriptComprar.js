@@ -7,7 +7,7 @@ console.log(stocks)
 let precios = preciosAlmacen.concat(preciosBebidas, preciosLacteos, preciosPanaderia)
 console.log(precios)
 
-// Llamado de funciones ---------------------------------------------------------------------------------------
+// Creacion de productos -------------------------------------------------------------------------------------
 llenarInformacionProductos(productosAlmacen, preciosAlmacen, imagenesAlmacen, stockAlmacen, "almacen")
 llenarInformacionProductos(productosBebidas, preciosBebidas, imagenesBebidas, stockBebidas, "bebidas")
 llenarInformacionProductos(productosLacteos, preciosLacteos, imagenesLacteos, stockLacteos, "lacteos")
@@ -69,7 +69,7 @@ function llenarInformacionProductos(producto, precio, imagen, stock, seccion) {
         let numeroStockTexto = document.createTextNode(stock[i])
         numeroStock.appendChild(numeroStockTexto)
         contenedorSeccion.appendChild(numeroStock)
-       
+
         // Crea input de agregar
         let inputAgregar = document.createElement("input")
         inputAgregar.setAttribute("type", "button")
@@ -232,3 +232,21 @@ for (let i = 0; i < selectMetodoPago.length; i++) {
     }
     )
 }
+
+// Crear ofertas ---------------------------------------------------------------------------------------------
+
+function aplicarOferta(productoEnOferta, productos, precio) {
+    let j = 0
+    for (let i = 0; i < productosEnOfertas.length; i++) {
+        for (let i = 0; i < productos.length; i++) {
+            if (productos[i] == productoEnOferta[j]) {
+                let descuento = precio[i] * 0.3
+                precio[i] = precio[i] - descuento
+                console.log(precio[i])
+                j++
+            }
+        }
+    }
+}
+
+aplicarOferta(productosEnOfertas, productos, precios)
