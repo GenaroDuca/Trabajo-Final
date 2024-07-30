@@ -321,19 +321,19 @@ footer {
 .stock-producto {
     width: 50px;
     font-size: 12px;
-    margin-left: 20px;
+    margin-left: 10px;
     margin-top: -10px;
     margin-bottom: -10px;
 }
 
-.input-stock-cantidad {
+.stock-cantidad {
     font-size: 12px;
     margin-top: -10px;
     margin-bottom: -10px;
     margin-left: -15px;
     width: 15px;
     border: none;
-
+    color: black;
 }
 
 .btn-agregar {
@@ -425,6 +425,8 @@ footer {
     border: none;
     cursor:pointer;
     margin-bottom: 20px;
+    margin-top: 20px;
+
 }
 
 .btn-final:hover {
@@ -453,7 +455,6 @@ footer {
     font-weight: bold;
     color: #0b3533;
     border-color: #0b3533;
-    margin-bottom: 20px;
     cursor: pointer;
 }
 
