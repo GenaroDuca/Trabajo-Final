@@ -64,10 +64,11 @@ function llenarInformacionProductos(producto, precio, imagen, stock, seccion) {
         contenedorSeccion.appendChild(textoStock)
 
         // Crear cantidad stock
-        let numeroStock = document.createElement("p")
-        numeroStock.setAttribute("class", "stock-producto-cantidad")
-        let numeroStockTexto = document.createTextNode(stock[i])
-        numeroStock.appendChild(numeroStockTexto)
+        let numeroStock = document.createElement("input")
+        numeroStock.setAttribute("class", "input-stock-cantidad")
+        numeroStock.setAttribute("id", "stock" + [i])
+        numeroStock.setAttribute("value", stock[i])
+        numeroStock.disabled = true
         contenedorSeccion.appendChild(numeroStock)
 
         // Crea input de agregar
@@ -106,6 +107,11 @@ for (let i = 0; i < productos.length; i++) {
             btnAgregar.setAttribute("disabled", "true")
 
             // Actualizacion de stock (HACER)
+            let stockHTML = document.getElementById("stock" + [i]);
+            let stock = parseInt(stockHTML.value);
+            console.log(stock)
+            stockHTML.value = stock - cantidad;
+            console.log(stockHTML)
 
             // Agregar productos en factura
             let seccionFactura = document.getElementById("productos-factura")

@@ -326,10 +326,14 @@ footer {
     margin-bottom: -10px;
 }
 
-.stock-producto-cantidad {
+.input-stock-cantidad {
     font-size: 12px;
     margin-top: -10px;
     margin-bottom: -10px;
+    margin-left: -15px;
+    width: 15px;
+    border: none;
+
 }
 
 .btn-agregar {
