@@ -107,6 +107,10 @@ footer {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.24);
 }
 
+.link a:visited {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.24);
+}
+
 
 
 
@@ -530,6 +534,10 @@ footer {
     border-radius: 20px;
 }
 
+.formulario:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.24);
+}
+
 .formulario h1 {
     border-radius: 5px;
     color: #0b3533;
@@ -566,7 +574,7 @@ footer {
     cursor:pointer;
 }
 
-.btn-enviar:hover {
+.texto-de-formulario button:hover {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.24);
 }
 

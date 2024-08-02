@@ -27,9 +27,5 @@ function cerrarFormulario() {
 
     let respuestaFormulario = document.querySelector(".texto-formulario-enviado");
     respuestaFormulario.classList.remove("ocultar");
-
-    let btnEnviar = document.querySelector(".btn-enviar-formulario");
-    btnEnviar.classList.add("ocultar");
-
 }
 

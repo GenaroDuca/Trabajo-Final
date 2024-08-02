@@ -99,7 +99,7 @@ for (let i = 0; i < productos.length; i++) {
         } else {
             let precioProducto = cantidad * precios[i]
             sumaPrecios += precioProducto
-            console.log(precioProducto)
+            console.log("Precio del producto: "+"(x"+cantidad+" "+productos[i]+") "+precioProducto)
 
             // Feedback agregado
             btnAgregar.value = "Agregado ✔"
@@ -145,12 +145,12 @@ btnIrComprar.addEventListener("click", () => {
 // Crear ofertas ---------------------------------------------------------------------------------------------
 function aplicarOferta(productoEnOferta, productos, precio) {
     let j = 0
-    for (let i = 0; i < productosEnOfertas.length; i++) {
+    for (let i = 0; i < productoEnOferta.length; i++) {
         for (let i = 0; i < productos.length; i++) {
             if (productos[i] == productoEnOferta[j]) {
                 let descuento = precio[i] * 0.3
                 precio[i] = precio[i] - descuento
-                console.log(precio[i])
+                console.log(productos[i]+" con oferta: "+precio[i])
                 j++
             }
         }
