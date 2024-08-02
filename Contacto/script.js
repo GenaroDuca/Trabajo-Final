@@ -23,15 +23,13 @@ btnEnviar.addEventListener("click", (e) => {
 
 function cerrarFormulario() {
     let textoFormulario = document.querySelector(".formulario");
-    textoFormulario.classList.toggle("ocultar");
+    textoFormulario.classList.add("ocultar");
 
     let respuestaFormulario = document.querySelector(".texto-formulario-enviado");
-    respuestaFormulario.classList.toggle("ocultar");
+    respuestaFormulario.classList.remove("ocultar");
 
-    let btnEnviar = document.querySelector(".btn-enviar");
-    btnEnviar.classList.toggle("ocultar");
+    let btnEnviar = document.querySelector(".btn-enviar-formulario");
+    btnEnviar.classList.add("ocultar");
 
-    let btnConForm = document.querySelector(".form-y-boton"); 
-    btnConForm.classList.toggle("ocultar");
 }
 

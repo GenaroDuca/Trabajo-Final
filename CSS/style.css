@@ -521,13 +521,6 @@ footer {
     border-radius: 20px;
 }
 
-.form-y-boton {
-    width: 400px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
 .formulario {
     width: 300px;
     height: auto;
