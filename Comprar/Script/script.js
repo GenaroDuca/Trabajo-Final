@@ -142,6 +142,24 @@ btnIrComprar.addEventListener("click", () => {
     }
 })
 
+// Crear ofertas ---------------------------------------------------------------------------------------------
+function aplicarOferta(productoEnOferta, productos, precio) {
+    let j = 0
+    for (let i = 0; i < productosEnOfertas.length; i++) {
+        for (let i = 0; i < productos.length; i++) {
+            if (productos[i] == productoEnOferta[j]) {
+                let descuento = precio[i] * 0.3
+                precio[i] = precio[i] - descuento
+                console.log(precio[i])
+                j++
+            }
+        }
+    }
+}
+
+aplicarOferta(productosEnOfertas, productos, precios)
+
+
 // Hacer ver agradecimiento ----------------------------------------------------------------------------------
 let btnComprar = document.getElementById("btn-comprar")
 btnComprar.addEventListener("click", () => {
@@ -209,6 +227,8 @@ for (let i = 0; i < clasificacion.length; i++) {
 
 // Botón del método de pago de la factura --------------------------------------------------------------------
 let metodoPago = document.getElementById("seccion-metodo-pago")
+let efectivo = document. getElementById ("efectivo")
+let transferencia = document.getElementById ("transferencia")
 let selectMetodoPago = document.getElementsByClassName("select-metodo-de-pago")
 
 for (let i = 0; i < selectMetodoPago.length; i++) {
@@ -218,38 +238,29 @@ for (let i = 0; i < selectMetodoPago.length; i++) {
         switch (opcionSeleccionada2) {
             case "Efectivo":
                 metodoPago.classList.add("ocultar");
+                efectivo.classList.remove("ocultar")
+                transferencia.classList.add ("ocultar")
                 break;
 
             case "Transferencia":
                 metodoPago.classList.add("ocultar");
+                efectivo.classList.add("ocultar")
+                transferencia.classList.remove ("ocultar")
+
                 break;
 
             case "Credito":
                 metodoPago.classList.remove("ocultar");
+                efectivo.classList.add("ocultar")
+                transferencia.classList.add ("ocultar")
                 break;
 
             case "Debito":
                 metodoPago.classList.remove("ocultar");
+                efectivo.classList.add("ocultar")
+                transferencia.classList.add ("ocultar")
                 break;
         }
     }
     )
 }
-
-// Crear ofertas ---------------------------------------------------------------------------------------------
-
-function aplicarOferta(productoEnOferta, productos, precio) {
-    let j = 0
-    for (let i = 0; i < productosEnOfertas.length; i++) {
-        for (let i = 0; i < productos.length; i++) {
-            if (productos[i] == productoEnOferta[j]) {
-                let descuento = precio[i] * 0.3
-                precio[i] = precio[i] - descuento
-                console.log(precio[i])
-                j++
-            }
-        }
-    }
-}
-
-aplicarOferta(productosEnOfertas, productos, precios)

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Supermercado Luna </title>
-    <link rel="stylesheet" href="prueba.css">
+    <link rel="stylesheet" href="../CSS/style.css">
 
 </head>
 
@@ -14,18 +14,18 @@
         <div class="seccion-titulo">
             <p>Supermercado Luna ®</p>
         </div>
-        <img src="Media/Logo.jpg" alt="Logo" class="logo" title="Logo">
-        <div>
-            <a href="index.html" class="link"> Inicio</a>
-            <a href="comprar.html" class="link"> Comprar</a>
-            <a href="contacto.html" class="link"> Contacto</a>
+        <img src="../Media/Logo.jpg" alt="Logo" class="logo" title="Logo">
+        <div class="links">
+            <a href="../index.html"> Inicio</a>
+            <a href="index.html"> Comprar</a>
+            <a href="../Contacto/index.html"> Contacto</a>
         </div>
     </header>
 
     <section class="section-general">
         <div class="seccion-de-compra" id="seccion-de-compra">
             <div class="select-categorias" id="select-categorias">
-                <p class="filtro">Filtro</p>
+                <p>Filtro</p>
                 <select class="categoria-productos">
                     <option value="Todo">Todo</option>
                     <option value="Almacén">Almacén</option>
@@ -40,22 +40,22 @@
                 <div class="seccion-productos" id="almacen"></div>
 
                 <p class="categoria">Bebidas</p>
-                <div class="seccion-productos" id="bebidas"> </div>
+                <div class="seccion-productos" id="bebidas"></div>
 
                 <p class="categoria">Lácteos</p>
                 <div class="seccion-productos" id="lacteos"> </div>
 
                 <p class="categoria">Panadería</p>
                 <div class="seccion-productos" id="panaderia"></div>
-
+                
                 <input  type="button" class="btn-ir-comprar" id="btn-ir-comprar" value="Ir a comprar">
             </div>
         </div>
 
         <div class="seccion-de-factura ocultar" id="seccion-de-factura">
             <div class="factura" id="factura">
-                <div id="productos-factura">
-                    <h1 class="titulo-factura">Factura</h1>
+                <div class="seccion-titulo-factura" id="productos-factura">
+                    <h1>Factura</h1>
                 </div>
                 <div>
                     <select class="select-metodo-de-pago">
@@ -65,10 +65,19 @@
                         <option value="Debito">Tarjeta de débito</option>
                     </select>
                 </div>
+                <div id="efectivo">
+                    <p><strong>Acercarse a sucursal</strong></p>
+                    <p>Av. Colón 2716, B7400 Olavarría, Prov Buenos Aires</p>
+                </div>
+
+                <div class="ocultar" id="transferencia">
+                    <p>Alias: supermercadolunaoficial.mp </p>
+                </div>
+
                 <div class="seccion-metodo-pago ocultar" id="seccion-metodo-pago">
                     <form class="pago-credito-debito">
                         <input placeholder="Número de tarjeta"  class="input-1" type="text">
-                        <input placeholder="Nompre y apellido (como figura en la tarjeta)" class="input-1" type="text">
+                        <input placeholder="Nompre y apellido" class="input-1" type="text">
                         <p class="texto-input">Fecha de vencimiento</p>
                         <input placeholder="Fecha de vencimiento" class="input-2" type="month">
                         <input placeholder="Código de seguridad" class="input-2" type="text">
@@ -77,28 +86,31 @@
                 </div>
                 <input type="button" class="btn-comprar" id="btn-comprar" value="Comprar">
             </div> 
-            <p class="agradecimiento ocultar" id="agradecimiento">Su compra se ha realizado con éxito ✔</p>
+            <p class="aviso ocultar" id="agradecimiento">Su compra se ha realizado con éxito ✔</p>
         </div>
+
       
 
     </section>
 
     <footer>
-        <img class="logo" src="Media/Logo.jpg" alt="Logo" title="Logo">
+        <img class="logo" src="../Media/Logo.jpg" alt="Logo" title="Logo">
         <p class="horario">Horario de atención lunes a viernes de 8 a 20hs.</p>
         <p class="nombre-footer">Supermercado Luna ®</p>
 
         <div class="seccion-datos-contacto">
-            <p class="email">supermercadolunaoficial@gmail.com</p>
-            <p class="telefono">2284 947315</p>
-            <p class="direccion">Av. Colón 2716, B7400 Olavarría, Provincia de Buenos Aires</p>
+            <p>supermercadolunaoficial@gmail.com</p>
+            <p>2284 947315</p>
+            <p>Av. Colón 2716, B7400 Olavarría, Provincia de Buenos Aires</p>
         </div>
         <div class="seccion-redes">
+            <img src="../Media/logo-instragram.png" alt="Red social Instragram" title="Instragram">
+            <img src="../Media/logo-x.webp" alt="Red social X" title="X">
         </div>
-
     </footer>
-
-    <script src="prueba.js"> </script>
+    
+    <script src="Script/infoProductos.js"></script>
+    <script src="Script/script.js"> </script>
 </body>
 
 </html>
